@@ -1,0 +1,149 @@
+<section class="paquetes">
+
+    <h2>Paquetes de Anthony Barbería</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Paquete</th>
+                <th>Incluye</th>
+                <th>Precio normal</th>
+                <th>Descuento</th>
+                <th>Precio final</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>Clásico</td>
+                <td>Corte + lavado</td>
+                <td>$150</td>
+                <td>10%</td>
+                <td><strong>$135</strong></td>
+            </tr>
+
+            <tr>
+                <td>Premium</td>
+                <td>Corte + barba + lavado</td>
+                <td>$220</td>
+                <td>15%</td>
+                <td><strong>$187</strong></td>
+            </tr>
+
+            <tr>
+                <td>Anthony</td>
+                <td>Corte + barba + cejas + lavado</td>
+                <td>$280</td>
+                <td>20%</td>
+                <td><strong>$224</strong></td>
+            </tr>
+
+            <tr>
+                <td>Barba</td>
+                <td>Perfilado + arreglo de barba</td>
+                <td>$130</td>
+                <td>10%</td>
+                <td><strong>$117</strong></td>
+            </tr>
+
+            <tr>
+                <td>Estudiante</td>
+                <td>Corte + lavado</td>
+                <td>$120</td>
+                <td>15%</td>
+                <td><strong>$102</strong></td>
+            </tr>
+
+            <tr>
+                <td>VIP</td>
+                <td>Corte + barba + cejas + lavado + tratamiento capilar</td>
+                <td>$350</td>
+                <td>25%</td>
+                <td><strong>$262.50</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
+
+<style>
+
+    .paquetes {
+        padding: 40px 20px;
+        text-align: center;
+        background: #C5A075; /* Café claro / Tono Latte */
+        border-radius: 15px;
+    }
+
+    .paquetes h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #362822; /* Dark Espresso para resaltar sobre el café claro */
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+    }
+
+    /* Eslogan */
+    .eslogan {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 25px;
+        color: #710912; /* Deep Burgundy para dar contraste cálido */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Tabla */
+    .paquetes table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #362822; /* Dark Espresso */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Encabezados */
+    .paquetes th {
+        background: #710912; /* Deep Burgundy */
+        color: #EFE5D2; /* Warm Champagne */
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    /* Celdas */
+    .paquetes td {
+        padding: 14px;
+        border-bottom: 1px solid #2a1f1b;
+        color: #EFE5D2; /* Warm Champagne */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Filas intercaladas */
+    .paquetes tbody tr:nth-child(even) {
+        background: #2a1f1b;
+    }
+
+    .paquetes tbody tr:nth-child(odd) {
+        background: #362822;
+    }
+
+    /* Efecto al pasar el mouse */
+    .paquetes tr:hover {
+        background: #8c4443;
+        transition: 0.3s;
+    }
+
+    /* Precio final */
+    .paquetes strong {
+        font-size: 19px;
+        color: #C28D39; /* Antique Gold */
+    }
+
+    /* Descuentos */
+    .paquetes td:nth-child(4) {
+        color: #C28D39; /* Antique Gold */
+        font-weight: bold;
+    }
+
+</style>
