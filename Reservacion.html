@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anthony  Barber Shop | Catálogo</title>
+
+    <style>
+        /* =
+        :root {
+            --burgundy: #710912;
+            --black: #0D0D0D;
+            --gold: #C28D39;
+            --espresso: #362822;
+            --champagne: #EFE5D2;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: var(--black);
+            color: var(--champagne);
+        }
+
+       
+
+        header {
+            background:
+                linear-gradient(rgba(13,13,13,.82), rgba(113,9,18,.75)),
+                radial-gradient(circle at center, #362822, #0D0D0D);
+
+            min-height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .header-content {
+            max-width: 800px;
+        }
+
+        .logo {
+            font-size: 65px;
+            color: var(--gold);
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: var(--champagne);
+        }
+
+        header p {
+            margin-top: 18px;
+            color: var(--gold);
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+
+        .linea {
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+            margin: 25px auto;
+        }
+
+
+        .catalogo {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo-seccion h2 {
+            color: var(--gold);
+            font-size: 38px;
+            letter-spacing: 3px;
+        }
+
+        .titulo-seccion p {
+            margin-top: 12px;
+            color: var(--champagne);
+            opacity: .8;
+        }
+
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 28px;
+        }
+
+        .producto {
+            background: var(--espresso);
+            border: 1px solid rgba(194,141,57,.45);
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+
+            transition: .3s ease;
+        }
+
+        .producto:hover {
+            transform: translateY(-8px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 30px rgba(194,141,57,.15);
+        }
+
+        .producto-icono {
+            font-size: 45px;
+            margin-bottom: 18px;
+        }
+
+        .producto h3 {
+            color: var(--champagne);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .descripcion {
+            color: #d6c8b2;
+            line-height: 1.6;
+            min-height: 75px;
+        }
+
+        .precio {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .recomendacion {
+            background: var(--burgundy);
+            border-left: 3px solid var(--gold);
+            padding: 14px;
+            color: var(--champagne);
+            font-size: 14px;
+            line-height: 1.5;
+            border-radius: 4px;
+        }
+
+        .recomendacion strong {
+            color: var(--gold);
+        }
+ 
+        .categorias {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .categoria {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: Georgia, serif;
+            transition: .3s;
+        }
+
+        .categoria:hover,
+        .categoria.activa {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+
+        .destacado {
+            background: var(--burgundy);
+            padding: 45px 25px;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .destacado h2 {
+            color: var(--gold);
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .destacado p {
+            max-width: 700px;
+            margin: auto;
+            line-height: 1.7;
+            color: var(--champagne)
+        }
+
+   
+
+        footer {
+            background: var(--black);
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            letter-spacing: 3px;
+        }
+
+        footer p {
+            margin-top: 10px;
+            color: #aaa;
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                min-height: 300px;
+            }
+
+            header h1 {
+                font-size: 32px;
+                letter-spacing: 4px;
+            }
+
+            .logo {
+                font-size: 45px;
+            }
+
+            .titulo-seccion h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="logo"></div>
+
+            <h1>Anthony Barber Shop</h1>
+
+            <div class="linea"></div>
+
+            <p>CATÁLOGO DE PRODUCTOS</p>
+
+        </div>
+
+    </header>
+
+
+    <main class="catalogo">
+
+        <div class="titulo-seccion">
+
+            <h2>Productos para Caballero</h2>
+
+            <p>
+                Productos seleccionados para mantener tu estilo
+                impecable todos los días.
+            </p>
+
+        </div>
+
+
+        <!-- FILTROS -->
+
+        <div class="categorias">
+
+            <button class="categoria activa" onclick="filtrar('todos', this)">
+                Todos
+            </button>
+
+            <button class="categoria" onclick="filtrar('cabello', this)">
+                Cabello
+            </button>
+
+            <button class="categoria" onclick="filtrar('barba', this)">
+                Barba
+            </button>
+
+            <button class="categoria" onclick="filtrar('afeitado', this)">
+                Afeitado
+            </button>
+
+        </div>
+
+
+        <!-- PRODUCTOS -->
+
+        <section class="productos">
+
+
+            <!-- PRODUCTO 1 -->
+
+            <article class="producto" data-categoria="cabello">
+
+                <div class="producto-icono"></div>
+
+                <h3>Pomada Premium</h3>
+
+                <p class="descripcion">
+                    Pomada de fijación media-alta con acabado elegante
+                    y fácil de retirar.
+                </p>
+
+                <div class="precio">
+                    $280 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Ideal para peinados clásicos, pompadour
+                    y estilos formales.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 2 -->
+
+            <article class="producto" data-categoria="cabello">
+
+                <div class="producto-icono"></div>
+
+                <h3>Cera para Cabello</h3>
+
+                <p class="descripcion">
+                    Cera de fijación flexible para crear diferentes
+                    estilos durante el día.
+                </p>
+
+                <div class="precio">
+                    $220 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Perfecta si buscas movimiento y un acabado
+                    natural.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 3 -->
+
+            <article class="producto" data-categoria="barba">
+
+                <div class="producto-icono"></div>
+
+                <h3>Aceite para Barba</h3>
+
+                <p class="descripcion">
+                    Aceite nutritivo que ayuda a mantener la barba
+                    suave y con una apariencia cuidada.
+                </p>
+
+                <div class="precio">
+                    $250 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Recomendado para barbas medianas y largas.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 4 -->
+
+            <article class="producto" data-categoria="barba">
+
+                <div class="producto-icono"></div>
+
+                <h3>Bálsamo para Barba</h3>
+
+                <p class="descripcion">
+                    Bálsamo de textura ligera para hidratar,
+                    controlar y dar forma a la barba.
+                </p>
+
+                <div class="precio">
+                    $270 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Excelente opción para controlar el volumen
+                    y mantener la barba ordenada.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 5 -->
+
+            <article class="producto" data-categoria="afeitado">
+
+                <div class="producto-icono"></div>
+
+                <h3>Crema de Afeitar</h3>
+
+                <p class="descripcion">
+                    Crema de afeitar diseñada para proporcionar
+                    una aplicación suave y cómoda.
+                </p>
+
+                <div class="precio">
+                    $190 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Ideal para afeitados frecuentes y una rutina
+                    de cuidado más cómoda.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 6 -->
+
+            <article class="producto" data-categoria="afeitado">
+
+                <div class="producto-icono"></div>
+
+                <h3>After Shave</h3>
+
+                <p class="descripcion">
+                    Loción para después del afeitado con sensación
+                    refrescante.
+                </p>
+
+                <div class="precio">
+                    $230 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Úsalo después del afeitado para complementar
+                    tu rutina de cuidado.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 7 -->
+
+            <article class="producto" data-categoria="cabello">
+
+                <div class="producto-icono"></div>
+
+                <h3>Shampoo Barber</h3>
+
+                <p class="descripcion">
+                    Shampoo de limpieza diaria pensado para el
+                    cuidado del cabello.
+                </p>
+
+                <div class="precio">
+                    $210 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Una buena opción para complementar el cuidado
+                    diario del cabello.
+                </div>
+
+            </article>
+
+
+            <!-- PRODUCTO 8 -->
+
+            <article class="producto" data-categoria="barba">
+
+                <div class="producto-icono"></div>
+
+                <h3>Shampoo para Barba</h3>
+
+                <p class="descripcion">
+                    Limpieza suave para ayudar a mantener la barba
+                    limpia y cuidada.
+                </p>
+
+                <div class="precio">
+                    $240 MXN
+                </div>
+
+                <div class="recomendacion">
+                    <strong>Recomendación:</strong>
+                    Especialmente útil para quienes mantienen
+                    una barba de crecimiento continuo.
+                </div>
+
+            </article>
+
+        </section>
+
+    </main>
+
+
+
+    <section class="destacado">
+
+        <h2>El detalle hace al caballero</h2>
+
+        <p>
+            En Anthony Barber Shop seleccionamos productos que
+            complementan tu corte, tu barba y tu estilo personal.
+        </p>
+
+    </section>
+
+
+
+
+    <footer>
+
+        <h3>ANTHONY BARBER SHOP</h3>
+
+        <p>
+            Estilo clásico · Elegancia · Cuidado masculino
+        </p>
+
+        <p>
+            @2026 Anthony Barber Shop
+        </p>
+
+    </footer>
+
+
+
+    <script>
+
+        function filtrar(categoria, boton) {
+
+            const productos =
+                document.querySelectorAll(".producto");
+
+            const botones =
+                document.querySelectorAll(".categoria");
+
+
+            // Quitar clase activa
+
+            botones.forEach(boton => {
+                boton.classList.remove("activa");
+            });
+
+
+            // Activar botón seleccionado
+
+            boton.classList.add("activa");
+
+
+            // Mostrar productos
+
+            productos.forEach(producto => {
+
+                if (
+                    categoria === "todos" ||
+                    producto.dataset.categoria === categoria
+                ) {
+
+                    producto.style.display = "block";
+
+                } else {
+
+                    producto.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+</body>
+</html>
