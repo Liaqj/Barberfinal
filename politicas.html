@@ -6,162 +6,298 @@
     <title>Políticas - Anthony Barbería</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
-            .barnav {
-        background-color: rgba(0, 0, 0, 1);
-        width: 100%;
-        padding: 20px 40px;
-        color: #ffffff;
-        justify-items: center;
-        font-family: sans-serif;
-    }
-    .barnav ul {
-        display: flex;
-        list-style: none;
-        gap: 25px;
-    }
-    .barnav li {
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: bold;
-        padding-bottom: 6px;
-    }
-    .barnav li a {
-        color: #ffffff;
-        text-decoration: none;
-        padding-bottom: 4px;
-        border-bottom: 2px solid transparent;
-        transition: 0.5s;
-    }
-    .barnav li a:hover {
-        color: #9c9a9a;
-        border-bottom: 2px solid #c28d39;
-        transition: 0.3s;
-    }
-
-    
         body {
-            font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #0d0d0d;
             color: #f5f5f5;
         }
 
-        #politicas {
-            padding: 40px 20px;
+        /* ENCABEZADO */
+        .encabezado {
+            background: #111111;
+            padding: 25px 20px;
             text-align: center;
+            border-bottom: 2px solid #d4af37;
         }
 
-        #politicas h2 {
-            font-size: 35px;
-            margin-bottom: 30px;
+        .encabezado h1 {
+            margin: 0;
             color: #d4af37;
+            font-size: 32px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
-        .politica {
-            background-color: #181818;
-            max-width: 650px;
-            margin: 15px auto;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #d4af37;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
-            text-align: left;
+        .encabezado p {
+            color: #cccccc;
+            margin: 8px 0 0;
         }
 
-        .politica h3 {
-            margin-top: 0;
+        /* CONTENEDOR PRINCIPAL */
+        .contenedor {
+            max-width: 900px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .tarjeta {
+            background: #181818;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .titulo h2 {
+            margin: 0;
             color: #d4af37;
+            font-size: 28px;
         }
 
-        .politica p {
-            margin-bottom: 0;
-            line-height: 1.5;
-            color: #e5e5e5;
+        .titulo p {
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* POLÍTICAS */
+        .politicas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .politica {
+            background: #222222;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            transition: 0.3s;
         }
 
         .politica:hover {
-            border-left-color: #a00000;
+            transform: translateY(-3px);
+            border-color: #d4af37;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+        }
+
+        .numero {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #d4af37;
+            color: #111;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-bottom: 12px;
+        }
+
+        .politica h3 {
+            margin: 0 0 10px;
+            color: #d4af37;
+            font-size: 19px;
+        }
+
+        .politica p {
+            margin: 0;
+            color: #ddd;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+
+        /* BOTÓN */
+        .boton {
+            display: block;
+            width: 220px;
+            margin: 30px auto 0;
+            padding: 13px;
+            text-align: center;
+            text-decoration: none;
+            background: #d4af37;
+            color: #111;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.3s;
+        }
+
+        .boton:hover {
+            background: #a00000;
+            color: white;
+        }
+
+        /* PIE */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* CELULAR */
+        @media (max-width: 700px) {
+
+            .encabezado h1 {
+                font-size: 25px;
+            }
+
+            .tarjeta {
+                padding: 20px;
+            }
+
+            .politicas {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo h2 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <nav class="barnav">
-    <ul>
-    <li><a href="inicio.html">Inicio</a></li>
-    <li><a href="catalogo.html">Cortes</a></li>
-    <li><a href="Catproductos.html">Productos</a></li>
-    <li><a href="paquetes.html">Paquetes</a></li>
-    <li><a href="Reservacion.html">Agendar Cita</a></li>
-    <li><a href="ubicacion.html">Sucursales</a></li>
-    <li><a href="contacto.html">Reseñas</a></li>
-    <li><a href="politicas.html">Politicas</a></li>
-    </ul>
-</nav>
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+        <h1>Anthony Barbería</h1>
+        <p>Políticas y condiciones del servicio</p>
+    </header>
 
 
-    <section id="politicas">
+    <!-- CONTENIDO -->
+    <main class="contenedor">
 
-        <h2>Políticas</h2>
+        <section class="tarjeta">
 
-        <div class="politica">
-            <h3>Citas</h3>
-            <p>
-                Las citas deben agendarse previamente indicando día,
-                horario, servicio y barbero.
-            </p>
-        </div>
+            <div class="titulo">
+                <h2>Políticas de la Barbería</h2>
+                <p>
+                    Antes de realizar tu reservación, te recomendamos
+                    conocer nuestras políticas.
+                </p>
+            </div>
 
-        <div class="politica">
-            <h3>Tolerancia</h3>
-            <p>
-                Contamos con 10 minutos de tolerancia. Después de este
-                tiempo, la cita podrá cancelarse o reprogramarse.
-            </p>
-        </div>
 
-        <div class="politica">
-            <h3>Métodos de pago</h3>
-            <p>
-                Aceptamos efectivo, tarjeta y transferencia.
-            </p>
-        </div>
+            <div class="politicas">
 
-        <div class="politica">
-            <h3>Anticipo y reembolsos</h3>
-            <p>
-                Para reservar una cita se solicita un 50% de anticipo.
-                El anticipo no es reembolsable.
-            </p>
-        </div>
+                <!-- POLÍTICA 1 -->
+                <div class="politica">
+                    <div class="numero">1</div>
 
-        <div class="politica">
-            <h3>Promoción</h3>
-            <p>
-                Al completar 10 cortes, el siguiente corte es gratis.
-            </p>
-        </div>
+                    <h3>Citas</h3>
 
-        <div class="politica">
-            <h3>Servicio</h3>
-            <p>
-                No contamos con servicio a domicilio.
-            </p>
-        </div>
+                    <p>
+                        Las citas deben agendarse previamente indicando
+                        día, horario, servicio y barbero.
+                    </p>
+                </div>
 
-        <div class="politica">
-            <h3>Horario</h3>
-            <p>
-                Atendemos todos los días de 12:00 p. m. a 9:00 p. m.
-            </p>
-        </div>
 
-    </section>
+                <!-- POLÍTICA 2 -->
+                <div class="politica">
+                    <div class="numero">2</div>
+
+                    <h3>Tolerancia</h3>
+
+                    <p>
+                        Contamos con 10 minutos de tolerancia. Después
+                        de este tiempo, la cita podrá cancelarse o
+                        reprogramarse.
+                    </p>
+                </div>
+
+
+                <!-- POLÍTICA 3 -->
+                <div class="politica">
+                    <div class="numero">3</div>
+
+                    <h3>Métodos de pago</h3>
+
+                    <p>
+                        Aceptamos efectivo, tarjeta y transferencia
+                        bancaria.
+                    </p>
+                </div>
+
+
+                <!-- POLÍTICA 4 -->
+                <div class="politica">
+                    <div class="numero">4</div>
+
+                    <h3>Anticipo y reembolsos</h3>
+
+                    <p>
+                        Para reservar una cita se solicita un 50% de
+                        anticipo. El anticipo no es reembolsable.
+                    </p>
+                </div>
+
+
+                <!-- POLÍTICA 5 -->
+                <div class="politica">
+                    <div class="numero">5</div>
+
+                    <h3>Promoción</h3>
+
+                    <p>
+                        Al completar 10 cortes, el siguiente corte
+                        es completamente gratis.
+                    </p>
+                </div>
+
+
+                <!-- POLÍTICA 6 -->
+                <div class="politica">
+                    <div class="numero">6</div>
+
+                    <h3>Servicio</h3>
+
+                    <p>
+                        Actualmente no contamos con servicio
+                        a domicilio.
+                    </p>
+                </div>
+
+
+                <!-- POLÍTICA 7 -->
+                <div class="politica">
+                    <div class="numero">7</div>
+
+                    <h3>Horario</h3>
+
+                    <p>
+                        Atendemos todos los días de 12:00 p. m.
+                        a 9:00 p. m.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN -->
+            <a href="agenda.html" class="boton">
+                Agendar una cita
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        © 2026 Anthony Barbería | Todos los derechos reservados
+    </footer>
 
 </body>
 </html>
