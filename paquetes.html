@@ -1,3 +1,16 @@
+<nav class="barnav">
+    <ul>
+    <li><a href="inicio.html">Inicio</a></li>
+    <li><a href="catalogo.html">Cortes</a></li>
+    <li><a href="Catproductos.html">Productos</a></li>
+    <li><a href="paquetes.html">Paquetes</a></li>
+    <li><a href="Reservacion.html">Agendar Cita</a></li>
+    <li><a href="ubicacion.html">Sucursales</a></li>
+    <li><a href="contacto.html">Reseñas</a></li>
+    <li><a href="politicas.html">Politicas</a></li>
+    </ul>
+</nav>
+
 <section class="paquetes">
 
     <h2>Paquetes de Anthony Barbería</h2>
@@ -67,6 +80,39 @@
 </section>
 
 <style>
+        .barnav {
+        background-color: rgba(0, 0, 0, 1);
+        width: 100%;
+        padding: 20px 40px;
+        color: #ffffff;
+        justify-items: center;
+        font-family: sans-serif;
+    }
+    .barnav ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+    .barnav li {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        padding-bottom: 6px;
+    }
+    .barnav li a {
+        color: #ffffff;
+        text-decoration: none;
+        padding-bottom: 4px;
+        border-bottom: 2px solid transparent;
+        transition: 0.5s;
+    }
+    .barnav li a:hover {
+        color: #9c9a9a;
+        border-bottom: 2px solid #c28d39;
+        transition: 0.3s;
+    }
+
+
 
     .paquetes {
         padding: 40px 20px;
@@ -145,5 +191,17 @@
         color: #C28D39; /* Antique Gold */
         font-weight: bold;
     }
-    
+
+ body {
+    background-image: url("imgpaq.jpeg");
+    background-size: cover;
+    background-position: center;S
+    background-repeat: no-repeat;
+}
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 </style>
