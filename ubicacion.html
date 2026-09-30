@@ -1,1099 +1,739 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Agenda | Barbería Anthony</title>
+    <title>Anthony Barber - Sucursales</title>
 
     <style>
+
+        /* ==============================
+           ESTILOS GENERALES
+        ============================== */
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background:
-                linear-gradient(rgba(13, 13, 13, 0.90), rgba(13, 13, 13, 0.95)),
-                radial-gradient(circle at top, #362822, #0D0D0D 70%);
-            color: #EFE5D2;
-            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0d0d0d;
+            color: white;
         }
 
-        /* ENCABEZADO */
+
+        /* ==============================
+           ENCABEZADO
+        ============================== */
+
         header {
-            background: #0D0D0D;
-            border-bottom: 2px solid #C28D39;
-            padding: 25px 8%;
+            background-color: #111111;
+            border-bottom: 1px solid #d4af37;
+            padding: 22px 8%;
+
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
 
         .logo {
-            color: #C28D39;
+            color: #d4af37;
             font-size: 28px;
-            font-style: italic;
             font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            display: block;
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 5px;
         }
 
         nav a {
-            color: #EFE5D2;
+            color: white;
             text-decoration: none;
             margin-left: 25px;
-            transition: 0.3s;
+            font-size: 15px;
         }
 
         nav a:hover {
-            color: #C28D39;
+            color: #d4af37;
         }
 
-        /* PORTADA */
+
+        /* ==============================
+           PORTADA
+        ============================== */
+
         .hero {
             text-align: center;
-            padding: 70px 20px 45px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            color: #C28D39;
-            font-style: italic;
-            margin-bottom: 12px;
+            padding: 70px 20px 50px;
         }
 
         .hero p {
-            color: #EFE5D2;
-            font-size: 18px;
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
         }
 
-        .linea {
-            width: 90px;
-            height: 3px;
-            background: #710912;
-            margin: 20px auto;
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
         }
 
-        /* CONTENEDOR */
-        .contenedor {
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero h3 {
+            color: #aaaaaa;
+            font-weight: normal;
+        }
+
+
+        /* ==============================
+           CONTENEDOR DE SUCURSALES
+        ============================== */
+
+        .sucursales {
             width: 90%;
             max-width: 1100px;
             margin: auto;
             padding-bottom: 70px;
-        }
 
-        .grid {
             display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
-        /* TARJETAS */
+
+        /* ==============================
+           TARJETAS
+        ============================== */
+
         .card {
-            background: rgba(54, 40, 34, 0.92);
-            border: 1px solid rgba(194, 141, 57, 0.5);
-            border-radius: 18px;
-            padding: 28px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-            margin-bottom: 25px;
-        }
-
-        .card h2 {
-            color: #C28D39;
-            margin-bottom: 22px;
-            font-style: italic;
-        }
-
-        /* FORMULARIOS */
-        label {
-            display: block;
-            color: #EFE5D2;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid #C28D39;
-            background: #0D0D0D;
-            color: #EFE5D2;
-            font-size: 15px;
-            outline: none;
-            margin-bottom: 18px;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #710912;
-            box-shadow: 0 0 8px rgba(194, 141, 57, 0.35);
-        }
-
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .fila {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        /* HORARIOS */
-        .horarios {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .hora {
-            padding: 12px 5px;
-            background: #0D0D0D;
-            color: #EFE5D2;
-            border: 1px solid #C28D39;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            transition: 0.2s;
-        }
-
-        .hora:hover {
-            background: #710912;
-        }
-
-        .hora.seleccionada {
-            background: #710912;
-            border-color: #C28D39;
-            box-shadow: 0 0 10px rgba(194,141,57,0.4);
-        }
-
-        .hora.ocupada {
-            background: #222;
-            color: #777;
-            border-color: #555;
-            cursor: not-allowed;
-            text-decoration: line-through;
-        }
-
-        /* SERVICIOS */
-        .servicios {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .servicio {
-            background: #0D0D0D;
-            border: 1px solid #C28D39;
-            border-radius: 10px;
-            padding: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .servicio:hover,
-        .servicio.activo {
-            background: #710912;
-        }
-
-        .servicio strong {
-            color: #C28D39;
-        }
-
-        .servicio.activo strong {
-            color: #EFE5D2;
-        }
-
-        /* RESUMEN */
-        .resumen {
-            background: #0D0D0D;
-            border: 1px solid #C28D39;
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .resumen h3 {
-            color: #C28D39;
-            margin-bottom: 15px;
-        }
-
-        .dato {
-            padding: 9px 0;
-            border-bottom: 1px solid #362822;
-        }
-
-        .dato:last-child {
-            border-bottom: none;
-        }
-
-        .dato span {
-            color: #C28D39;
-        }
-
-        .precio-total {
-            font-size: 25px;
-            color: #C28D39;
-            text-align: right;
-            margin-top: 15px;
-        }
-
-        /* POLÍTICA */
-        .politica {
-            background: rgba(113, 9, 18, 0.35);
-            border-left: 4px solid #C28D39;
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* RECORDATORIO */
-        .recordatorio {
-            background: #EFE5D2;
-            color: #362822;
-            padding: 18px;
+            background-color: #171717;
+            border: 1px solid #333333;
             border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .recordatorio strong {
-            color: #710912;
-        }
-
-        /* BOTÓN */
-        .btn {
-            width: 100%;
-            border: none;
-            padding: 17px;
-            margin-top: 20px;
-            border-radius: 10px;
-            background: #710912;
-            color: #EFE5D2;
-            font-family: Georgia, serif;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
+            padding: 28px;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            background: #C28D39;
-            color: #0D0D0D;
-            transform: translateY(-2px);
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #d4af37;
         }
 
-        /* MENSAJE */
-        #mensaje {
-            display: none;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
-            background: #C28D39;
-            color: #0D0D0D;
-            text-align: center;
+        .numero {
+            color: #d4af37;
+            font-size: 13px;
             font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
         }
 
-        /* PIE */
-        footer {
-            background: #0D0D0D;
-            border-top: 1px solid #C28D39;
+        .card h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+
+        /* ==============================
+           INFORMACIÓN
+        ============================== */
+
+        .info {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .info strong {
+            color: #d4af37;
+        }
+
+
+        /* ==============================
+           ESTADO ABIERTA / CERRADA
+        ============================== */
+
+        .estado {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .abierta {
+            color: #4dff91;
+            background-color: #12351f;
+            border: 1px solid #2f9e5b;
+        }
+
+        .cerrada {
+            color: #ff6565;
+            background-color: #3a1515;
+            border: 1px solid #a33a3a;
+        }
+
+
+        /* ==============================
+           BOTÓN UBICACIÓN
+        ============================== */
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 13px;
+
+            background-color: #d4af37;
+            color: #111111;
+
             text-align: center;
-            padding: 25px;
-            color: #EFE5D2;
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 6px;
+            transition: 0.3s;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
+        .boton:hover {
+            background-color: white;
+        }
+
+
+        /* ==============================
+           PIE DE PÁGINA
+        ============================== */
+
+        footer {
+            background-color: #111111;
+            border-top: 1px solid #333333;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer h2 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+
+        footer h2 span {
+            color: white;
+        }
+
+        footer p {
+            color: #888888;
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           DISEÑO PARA CELULAR
+        ============================== */
+
+        @media (max-width: 750px) {
 
             header {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
 
             nav a {
                 margin: 0 8px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .fila {
-                grid-template-columns: 1fr;
+                font-size: 13px;
             }
 
             .hero h1 {
-                font-size: 36px;
+                font-size: 32px;
             }
-        }
 
-        @media (max-width: 500px) {
-
-            .servicios {
+            .sucursales {
                 grid-template-columns: 1fr;
             }
-
-            .horarios {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .card {
-                padding: 20px;
-            }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
 
-    <div class="logo">
-        BARBERÍA ANTHONY
-    </div>
+    <!-- ==============================
+         ENCABEZADO
+    ============================== -->
 
-    <nav>
-        <a href="#agenda">Agenda</a>
-        <a href="#reserva">Reservar</a>
-    </nav>
+    <header>
 
-</header>
+        <div class="logo">
+            ANTHONY
+            <span>BARBER</span>
+        </div>
 
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#sucursales">Sucursales</a>
+            <a href="#">Servicios</a>
+            <a href="#">Contacto</a>
+        </nav>
 
-<section class="hero">
-
-    <h1>Tu estilo, tu momento</h1>
-
-    <div class="linea"></div>
-
-    <p>Agenda tu cita con nuestros barberos</p>
-
-</section>
+    </header>
 
 
-<div class="contenedor">
+    <!-- ==============================
+         TÍTULO PRINCIPAL
+    ============================== -->
 
-    <div class="grid">
+    <section class="hero">
 
-        <!-- COLUMNA IZQUIERDA -->
-        <div>
+        <p>ANTHONY BARBER</p>
 
-            <!-- FECHA -->
-            <div class="card" id="agenda">
+        <h1>
+            NUESTRAS <span>SUCURSALES</span>
+        </h1>
 
-                <h2>1. Elige tu fecha</h2>
+        <h3>
+            Encuentra tu sucursal más cercana
+        </h3>
 
-                <label for="fecha">
-                    Fecha de la cita
-                </label>
+    </section>
 
-                <input
-                    type="date"
-                    id="fecha"
-                    onchange="actualizarResumen()"
-                >
+
+    <!-- ==============================
+         SUCURSALES
+    ============================== -->
+
+    <section class="sucursales" id="sucursales">
+
+
+        <!-- ==============================
+             SUCURSAL 1
+        ============================== -->
+
+        <div class="card">
+
+            <div class="numero">
+                SUCURSAL 01
+            </div>
+
+            <h2>
+                Centro
+            </h2>
+
+            <div class="info">
+
+                <strong>Ubicación</strong>
+                <br>
+
+                Av. Principal #125, Zona Centro
 
             </div>
 
+            <div class="info">
 
-            <!-- HORARIOS -->
-            <div class="card">
+                <strong>Horario</strong>
+                <br>
 
-                <h2>2. Horarios disponibles</h2>
+                Lunes a Sábado: 9:00 AM - 8:00 PM
+                <br>
 
-                <div class="horarios">
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        10:00 AM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        11:00 AM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        12:00 PM
-                    </button>
-
-                    <button class="hora ocupado">
-                        1:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        2:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        3:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        4:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        5:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        6:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        7:00 PM
-                    </button>
-
-                </div>
+                Domingo: 10:00 AM - 4:00 PM
 
             </div>
 
-
-            <!-- SERVICIOS -->
-            <div class="card">
-
-                <h2>3. Selecciona tu servicio</h2>
-
-                <div class="servicios">
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Corte', 170)"
-                    >
-                        <strong>Corte</strong>
-                        <br>
-                        $170
-                    </div>
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Corte + Barba', 250)"
-                    >
-                        <strong>Corte + Barba</strong>
-                        <br>
-                        $260
-                    </div>
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Barba', 160)"
-                    >
-                        <strong>Barba</strong>
-                        <br>
-                        $150
-                    </div>
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Corte Premium', 300)"
-                    >
-                        <strong>Corte Premium</strong>
-                        <br>
-                        $300
-                    </div>
-
-                </div>
-
+            <div id="estado1" class="estado">
+                Verificando...
             </div>
 
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="boton">
 
-            <!-- BARBEROS -->
-            <div class="card">
+                Ver ubicación
 
-                <h2>4. Elige tu barbero</h2>
-
-                <label for="barbero">
-                  B  Anthony 
-                </label>
-
-                <select id="barbero" onchange="actualizarResumen()">
-
-                    <option value="">
-                        Selecciona un barbero
-                    </option>
-
-                    <option>
-                        Anthony
-                    </option>
-
-                    <option>
-                        Lia
-                    </option>
-
-                    <option>
-                        Amaia
-                    </option>
-
-                    <option>
-                        Axel
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- DATOS DEL CLIENTE -->
-            <div class="card" id="reserva">
-
-                <h2>5. Datos del cliente</h2>
-
-                <div class="fila">
-
-                    <div>
-
-                        <label>
-                            Nombre completo
-                        </label>
-
-                        <input
-                            type="text"
-                            id="nombre"
-                            placeholder="Ej. Juan Dueñas"
-                            oninput="actualizarResumen()"
-                        >
-
-                    </div>
-
-                    <div>
-
-                        <label>
-                            Teléfono
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="telefono"
-                            placeholder="Ej. 449 123 4567"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <label>
-                    Notas
-                </label>
-
-                <textarea
-                    id="notas"
-                    placeholder="Ej. Llego 10 min tarde / Es mi primera vez"
-                    oninput="actualizarResumen()"
-                ></textarea>
-
-            </div>
+            </a>
 
         </div>
 
 
-        <!-- COLUMNA DERECHA -->
-        <div>
+        <!-- ==============================
+             SUCURSAL 2
+        ============================== -->
 
-            <div class="card">
+        <div class="card">
 
-                <h2>Resumen de tu cita</h2>
+            <div class="numero">
+                SUCURSAL 02
+            </div>
 
-                <div class="resumen">
+            <h2>
+                Norte
+            </h2>
 
-                    <h3>Tu reservación</h3>
+            <div class="info">
 
-                    <div class="dato">
-                        <span>Fecha:</span>
-                        <strong id="resumenFecha">
-                            Selecciona una fecha
-                        </strong>
-                    </div>
+                <strong>Ubicación</strong>
+                <br>
 
-                    <div class="dato">
-                        <span>Hora:</span>
-                        <strong id="resumenHora">
-                            Selecciona un horario
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Servicio:</span>
-                        <strong id="resumenServicio">
-                            Selecciona un servicio
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Barbero:</span>
-                        <strong id="resumenBarbero">
-                            Selecciona un barbero
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Cliente:</span>
-                        <strong id="resumenCliente">
-                            -
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Notas:</span>
-                        <strong id="resumenNotas">
-                            -
-                        </strong>
-                    </div>
-
-                    <div class="precio-total">
-                        Total: $<span id="resumenPrecio">0</span>
-                    </div>
-
-                </div>
-
-
-                <!-- RECORDATORIO -->
-                <div class="recordatorio">
-
-                    <strong> Recordatorio automático</strong>
-
-                    <p>
-                        Te esperamos mañana.
-                    </p>
-
-                    <small>
-                        Recibirás un recordatorio de tu cita.
-                    </small>
-
-                </div>
-
-
-                <!-- POLÍTICA -->
-                <div class="politica">
-
-                    <strong>
-                        Política de cancelación
-                    </strong>
-
-                    <p>
-                        Cancela con 2hrs de anticipación.
-                    </p>
-
-                    <p>
-                        En caso de no cancelar a tiempo,
-                        tu reservación puede perderse.
-                    </p>
-
-                </div>
-
-
-                <button
-                    class="btn"
-                    onclick="confirmarCita()"
-                >
-                    ✓ Confirmar cita
-                </button>
-
-                <div id="mensaje"></div>
+                Av. Independencia #245, Zona Norte
 
             </div>
 
+            <div class="info">
+
+                <strong>Horario</strong>
+                <br>
+
+                Lunes a Sábado: 9:00 AM - 8:00 PM
+                <br>
+
+                Domingo: 10:00 AM - 4:00 PM
+
+            </div>
+
+            <div id="estado2" class="estado">
+                Verificando...
+            </div>
+
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="boton">
+
+                Ver ubicación
+
+            </a>
+
         </div>
 
-    </div>
 
-</div>
+        <!-- ==============================
+             SUCURSAL 3
+        ============================== -->
 
+        <div class="card">
 
-<footer>
+            <div class="numero">
+                SUCURSAL 03
+            </div>
 
-    <p>
-        © 2026 Barbería Anthony
-    </p>
+            <h2>
+                Sur
+            </h2>
 
-    <p>
-        Estilo • Precisión • Elegancia
-    </p>
+            <div class="info">
 
-</footer>
+                <strong>Ubicación</strong>
+                <br>
 
+                Blvd. Las Américas #350, Zona Sur
 
-<script>
+            </div>
 
-    /* VARIABLES */
+            <div class="info">
 
-    let horaSeleccionada = "";
+                <strong>Horario</strong>
+                <br>
 
-    let servicioSeleccionado = "";
+                Lunes a Sábado: 10:00 AM - 9:00 PM
+                <br>
 
-    let precioSeleccionado = 0;
+                Domingo: 11:00 AM - 5:00 PM
 
+            </div>
 
-    /* FECHA MÍNIMA = HOY */
+            <div id="estado3" class="estado">
+                Verificando...
+            </div>
 
-    const fechaInput = document.getElementById("fecha");
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="boton">
 
-    const hoy = new Date();
+                Ver ubicación
 
-    const año = hoy.getFullYear();
+            </a>
 
-    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
-
-    const dia = String(hoy.getDate()).padStart(2, "0");
-
-    fechaInput.min = ${año}-${mes}-${dia};
-
-
-    /* SELECCIONAR HORA */
-
-    function seleccionarHora(elemento) {
-
-        document
-            .querySelectorAll(".hora")
-            .forEach(hora => {
-                hora.classList.remove("seleccionada");
-            });
-
-        elemento.classList.add("seleccionada");
-
-        horaSeleccionada = elemento.innerText;
-
-        actualizarResumen();
-    }
+        </div>
 
 
-    /* SELECCIONAR SERVICIO */
+        <!-- ==============================
+             SUCURSAL 4
+        ============================== -->
 
-    function seleccionarServicio(elemento, nombre, precio) {
+        <div class="card">
 
-        document
-            .querySelectorAll(".servicio")
-            .forEach(servicio => {
-                servicio.classList.remove("activo");
-            });
+            <div class="numero">
+                SUCURSAL 04
+            </div>
 
-        elemento.classList.add("activo");
+            <h2>
+                Plaza
+            </h2>
 
-        servicioSeleccionado = nombre;
+            <div class="info">
 
-        precioSeleccionado = precio;
+                <strong>Ubicación</strong>
+                <br>
 
-        actualizarResumen();
-    }
+                Plaza Principal, Local #18
+
+            </div>
+
+            <div class="info">
+
+                <strong>Horario</strong>
+                <br>
+
+                Lunes a Sábado: 10:00 AM - 9:00 PM
+                <br>
+
+                Domingo: 11:00 AM - 5:00 PM
+
+            </div>
+
+            <div id="estado4" class="estado">
+                Verificando...
+            </div>
+
+            <a
+                href="https://www.google.com/maps"
+                target="_blank"
+                class="boton">
+
+                Ver ubicación
+
+            </a>
+
+        </div>
+
+    </section>
 
 
-    /* ACTUALIZAR RESUMEN */
+    <!-- ==============================
+         PIE DE PÁGINA
+    ============================== -->
 
-    function actualizarResumen() {
+    <footer>
 
-        const fecha = document.getElementById("fecha").value;
+        <h2>
+            ANTHONY <span>BARBER</span>
+        </h2>
 
-        const barbero =
-            document.getElementById("barbero").value;
+        <p>
+            © 2026 Anthony Barber | Todos los derechos reservados
+        </p>
 
-        const nombre =
-            document.getElementById("nombre").value;
-
-        const notas =
-            document.getElementById("notas").value;
+    </footer>
 
 
-        /* FECHA */
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
 
-        if (fecha) {
+    <script>
 
-            const fechaObj =
-                new Date(fecha + "T12:00:00");
+        /*
+         * Esta función determina
+         * automáticamente si una sucursal
+         * está abierta o cerrada.
+         */
 
-            const opciones = {
-                weekday: "long",
-                day: "numeric",
-                month: "long"
-            };
+        function comprobarEstado(
+            id,
+            apertura,
+            cierre,
+            aperturaDomingo,
+            cierreDomingo
+        ) {
 
-            let fechaTexto =
-                fechaObj.toLocaleDateString(
-                    "es-MX",
-                    opciones
+            const ahora = new Date();
+
+            const dia = ahora.getDay();
+
+            const hora =
+                ahora.getHours() +
+                ahora.getMinutes() / 60;
+
+            let horaApertura;
+            let horaCierre;
+
+
+            /* ==============================
+               SI ES DOMINGO
+            ============================== */
+
+            if (dia === 0) {
+
+                horaApertura = aperturaDomingo;
+                horaCierre = cierreDomingo;
+
+            }
+
+
+            /* ==============================
+               LUNES A SÁBADO
+            ============================== */
+
+            else {
+
+                horaApertura = apertura;
+                horaCierre = cierre;
+
+            }
+
+
+            const elemento =
+                document.getElementById(id);
+
+
+            /* ==============================
+               COMPROBAR ESTADO
+            ============================== */
+
+            if (
+                hora >= horaApertura &&
+                hora < horaCierre
+            ) {
+
+                elemento.textContent =
+                    "ABIERTA AHORA";
+
+                elemento.classList.remove(
+                    "cerrada"
                 );
 
-            fechaTexto =
-                fechaTexto.charAt(0).toUpperCase()
-                + fechaTexto.slice(1);
-
-            document.getElementById(
-                "resumenFecha"
-            ).innerText = fechaTexto;
-
-        }
-
-
-        /* HORA */
-
-        document.getElementById(
-            "resumenHora"
-        ).innerText =
-            horaSeleccionada || "Selecciona un horario";
-
-
-        /* SERVICIO */
-
-        document.getElementById(
-            "resumenServicio"
-        ).innerText =
-            servicioSeleccionado ||
-            "Selecciona un servicio";
-
-
-        /* BARBERO */
-
-        document.getElementById(
-            "resumenBarbero"
-        ).innerText =
-            barbero ||
-            "Selecciona un barbero";
-
-
-        /* CLIENTE */
-
-        document.getElementById(
-            "resumenCliente"
-        ).innerText =
-            nombre || "-";
-
-
-        /* NOTAS */
-
-        document.getElementById(
-            "resumenNotas"
-        ).innerText =
-            notas || "-";
-
-
-        /* PRECIO */
-
-        document.getElementById(
-            "resumenPrecio"
-        ).innerText =
-            precioSeleccionado;
-    }
-
-
-    /* CONFIRMAR CITA */
-
-    function confirmarCita() {
-
-        const fecha =
-            document.getElementById("fecha").value;
-
-        const barbero =
-            document.getElementById("barbero").value;
-
-        const nombre =
-            document.getElementById("nombre").value;
-
-        const telefono =
-            document.getElementById("telefono").value;
-
-        const notas =
-            document.getElementById("notas").value;
-
-
-        /* VALIDACIONES */
-
-        if (!fecha) {
-
-            alert("Selecciona una fecha.");
-
-            return;
-        }
-
-        if (!horaSeleccionada) {
-
-            alert("Selecciona un horario.");
-
-            return;
-        }
-
-        if (!servicioSeleccionado) {
-
-            alert("Selecciona un servicio.");
-
-            return;
-        }
-
-        if (!barbero) {
-
-            alert("Selecciona un barbero.");
-
-            return;
-        }
-
-        if (!nombre) {
-
-            alert("Escribe tu nombre.");
-
-            return;
-        }
-
-        if (!telefono) {
-
-            alert("Escribe tu teléfono.");
-
-            return;
-        }
-
-
-        /* FORMATO DE FECHA */
-
-        const fechaObj =
-            new Date(fecha + "T12:00:00");
-
-        const opciones = {
-            weekday: "long",
-            day: "numeric",
-            month: "long"
-        };
-
-        let fechaTexto =
-            fechaObj.toLocaleDateString(
-                "es-MX",
-                opciones
-            );
-
-        fechaTexto =
-            fechaTexto.charAt(0).toUpperCase()
-            + fechaTexto.slice(1);
-
-
-        /* GUARDAR CITA */
-
-        const cita = {
-
-            fecha: fechaTexto,
-
-            fechaISO: fecha,
-
-            hora: horaSeleccionada,
-
-            servicio: servicioSeleccionado,
-
-            precio: precioSeleccionado,
-
-            barbero: barbero,
-
-            nombre: nombre,
-
-            telefono: telefono,
-
-            notas: notas,
-
-            recordatorio:
-                "Te esperamos mañana"
-
-        };
-
-
-        localStorage.setItem(
-            "citaBarberia",
-            JSON.stringify(cita)
-        );
-
-
-        /* MENSAJE DE WHATSAPP */
-
-        const numeroBarberia =
-            "524491234567";
-
-
-        const mensaje =
-
-` BARBERÍA ANTHONY - NUEVA CITA
-
-Cliente: ${nombre}
-
- Fecha: ${fechaTexto}
-
- Hora: ${horaSeleccionada}
-
- Servicio: ${servicioSeleccionado}
-
-Barbero: ${barbero}
-
- Precio: $${precioSeleccionado}
-
-Notas: ${notas || "Sin notas"}
-
- Recordatorio:
-Te esperamos mañana.
-
-Política:
-Cancela con 2hrs de anticipación.
-
-¡Gracias por reservar con nosotros!`;
-
-
-        const urlWhatsApp =
-            "https://wa.me/" +
-            numeroBarberia +
-            "?text=" +
-            encodeURIComponent(mensaje);
-
-
-        /* MENSAJE EN PANTALLA */
-
-        const mensajeDiv =
-            document.getElementById("mensaje");
-
-        mensajeDiv.style.display = "block";
-
-        mensajeDiv.innerText =
-            "✓ Cita guardada correctamente. Abriendo WhatsApp...";
-
-
-        /* ABRIR WHATSAPP */
-
-        setTimeout(() => {
-
-            window.open(
-                urlWhatsApp,
-                "_blank"
-            );
-
-        }, 800);
-
-    }
-
-
-    /* CARGAR CITA GUARDADA */
-
-    window.addEventListener(
-        "load",
-        function () {
-
-            const citaGuardada =
-                localStorage.getItem(
-                    "citaBarberia"
+                elemento.classList.add(
+                    "abierta"
                 );
 
-            if (citaGuardada) {
+            }
 
-                console.log(
-                    "Última cita guardada:",
-                    JSON.parse(citaGuardada)
+            else {
+
+                elemento.textContent =
+                    "CERRADA";
+
+                elemento.classList.remove(
+                    "abierta"
+                );
+
+                elemento.classList.add(
+                    "cerrada"
                 );
 
             }
 
         }
-    );
 
-</script>
+
+        /* ==============================
+           SUCURSAL 1
+        ============================== */
+
+        comprobarEstado(
+            "estado1",
+            9,
+            20,
+            10,
+            16
+        );
+
+
+        /* ==============================
+           SUCURSAL 2
+        ============================== */
+
+        comprobarEstado(
+            "estado2",
+            9,
+            20,
+            10,
+            16
+        );
+
+
+        /* ==============================
+           SUCURSAL 3
+        ============================== */
+
+        comprobarEstado(
+            "estado3",
+            10,
+            21,
+            11,
+            17
+        );
+
+
+        /* ==============================
+           SUCURSAL 4
+        ============================== */
+
+        comprobarEstado(
+            "estado4",
+            10,
+            21,
+            11,
+            17
+        );
+
+
+        /* ==============================
+           ACTUALIZAR CADA MINUTO
+        ============================== */
+
+        setInterval(function () {
+
+            comprobarEstado(
+                "estado1",
+                9,
+                20,
+                10,
+                16
+            );
+
+            comprobarEstado(
+                "estado2",
+                9,
+                20,
+                10,
+                16
+            );
+
+            comprobarEstado(
+                "estado3",
+                10,
+                21,
+                11,
+                17
+            );
+
+            comprobarEstado(
+                "estado4",
+                10,
+                21,
+                11,
+                17
+            );
+
+        }, 60000);
+
+    </script>
 
 </body>
+
 </html>
