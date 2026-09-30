@@ -1,0 +1,181 @@
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <nav class="barnav">
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="catalogo.html">Cortes</a></li>
+            <li><a href="contacto.html">Productos</a></li>
+        <li><a href="contacto.html">Paquetes</a></li>
+        <li><a href="contacto.html">Agendar Cita</a></li>
+        <li><a href="contacto.html">Cursos</a></li>
+        <li><a href="contacto.html">Sucursales</a></li>
+        <li><a href="contacto.html">Reseñas</a></li>
+    </ul>
+</nav>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: borsder-box;
+    }
+
+    .logo {
+        width: 140px;
+        height: auto;
+        margin: -40px 90px;
+    }
+
+    .tituloct {
+        text-align: center;
+        color: #efe5d2;
+        font-size: 35px;
+        font-family: 'sans-serif';
+        margin: 10px auto;
+        font-weight: bold;
+    }
+
+    body {
+        background-color: #0d0d0d;
+        background-size: 100% auto;
+        background-position: top center;
+        background-repeat: no-repeat;
+    }
+
+    .barnav {
+        background-color: rgba(0, 0, 0, 1);
+        width: 100%;
+        padding: 20px 40px;
+        color: #ffffff;
+        justify-items: center;
+        font-family: sans-serif;
+    }
+    .barnav ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+    .barnav li {
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        padding-bottom: 6px;
+    }
+    .barnav li a {
+        color: #ffffff;
+        text-decoration: none;
+        padding-bottom: 4px;
+        border-bottom: 2px solid transparent;
+        transition: 0.5s;
+    }
+    .barnav li a:hover {
+        color: #9c9a9a;
+        border-bottom: 2px solid #c28d39;
+        transition: 0.3s;
+    }
+
+    .banner {
+        width: 100%;
+        height: 200px;
+        background-image: url('fondo.jpg');
+        background-size: 100% auto;
+        background-position: top center;
+        background-repeat: no-repeat;
+        margin-top: 0px;
+    }
+
+    .catalogo {
+        background-color: #493b3409;
+        margin: auto;
+        flex-wrap: wrap;
+        flex-direction: row;
+        display: flex;
+        justify-content: center;
+        gap: -300px;
+        width: 950px;
+        border-radius: 5px;
+    }
+
+    .cortecont {
+        background-color: #362822;
+        padding: 20px;
+        justify-content: center;
+        text-align: center;
+        border-radius: 10px;
+        width: 200px;
+        margin: 30px;
+        color: #efe5d2;
+        height: text-content;
+    }
+    .cortecont h3 {
+        color: #c28d39;
+    }
+    .cortecont img {
+        width: 200px;
+        object-fit: cover;  
+        height: 250px;
+        border-radius: 10px;
+    }
+</style>
+
+<div class="banner">
+    <img class="logo" src="logo.png" alt="Logo de la barbería">
+    <h2 class="tituloct">¡Bienvenido a nuestro catálogo de cortes!</h2>
+</div>
+
+<div class="catalogo">
+
+    <div class="cortecont">
+        <img src="buzzcut.jpg" alt="Corte 1">
+        <h3>Buzz cut</h3>
+        <p>estilo de cabello ultracorto y uniforme hecho con máquina.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="crecut.jpg" alt="Corte 1">
+        <h3>Crew cut</h3>
+        <p>peinado corto para hombre que deja el cabello más largo en la parte superior de la cabeza y muy corto, degradado o rebajado en los lados y la nuca.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="sidecut.jpg" alt="Corte 1">
+        <h3>Side cut</h3>
+        <p>estilo clásico y elegante donde el cabello se peina dividiéndolo de un lado, dejando la parte superior más larga y los lados cortos o degradados.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="pompadourt.jpg" alt="Corte 1">
+        <h3>Pompadourt</h3>
+        <p>se caracteriza por llevar el cabello largo y levantado hacia atrás desde la frente, acompañado usualmente por laterales cortos o desvanecidos.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="slickback.jpg" alt="Corte 1">
+        <h3>Slick back</h3>
+        <p>estilo clásico y elegante en el que el cabello de la parte superior se peina completamente hacia atrás.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="taperfade.jpg" alt="Corte 1">
+        <h3>Taper fade</h3>
+        <p>corte de pelo para hombre que desvanece o degrada únicamente las patillas y la nuca, manteniendo el largo natural en los laterales y la parte superior.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="french.jpg" alt="Corte 1">
+        <h3>French crop</h3>
+        <p>estilo de cabello masculino que se caracteriza por llevar los lados y la nuca muy cortos o rapados y la parte superior un poco mas larga.</p>
+    </div>
+
+    <div class="cortecont">
+        <img src="cliente.jpg" alt="Corte 1">
+        <h3>¡A elección del cliente!</h3>
+        <p>Trae una foto de referencia o dinos que idea tienes en mente.</p>
+    </div>
+
+</div>
+</html>
