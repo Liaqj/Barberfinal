@@ -1,1144 +1,992 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html><html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Agendar cita | Anthony Barber</title><style>
 
-    <title>Agenda | Barbería Anthony</title>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <style>
+body {
+    font-family: Georgia, serif;
+    background: #0D0D0D;
+    color: #EFE5D2;
+    min-height: 100vh;
+}
 
-            .barnav {
-        background-color: rgba(0, 0, 0, 1);
-        width: 100%;
-        padding: 20px 40px;
-        color: #ffffff;
-        justify-items: center;
-        font-family: sans-serif;
+.barnav {
+    background: #0D0D0D;
+    padding: 20px;
+    border-bottom: 2px solid #C28D39;
+}
+
+.barnav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+}
+
+.barnav a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+
+.barnav a:hover {
+    color: #C28D39;
+}
+
+header {
+    text-align: center;
+    padding: 30px;
+    border-bottom: 1px solid #C28D39;
+}
+
+.logo {
+    color: #C28D39;
+    font-size: 30px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.hero {
+    text-align: center;
+    padding: 40px 15px;
+}
+
+.hero h1 {
+    color: #C28D39;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 17px;
+}
+
+.linea {
+    width: 80px;
+    height: 3px;
+    background: #710912;
+    margin: 15px auto;
+}
+
+.contenedor {
+    width: 92%;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 25px;
+    align-items: start;
+}
+
+.columna-resumen {
+    position: sticky;
+    top: 20px;
+}
+
+.card {
+    background: #241D19;
+    border: 1px solid #C28D39;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+    color: #C28D39;
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    background: #0D0D0D;
+    color: #EFE5D2;
+    border: 1px solid #C28D39;
+    border-radius: 8px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    font-family: Arial, sans-serif;
+}
+
+select {
+    cursor: pointer;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #C28D39;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.oculto {
+    display: none;
+}
+
+.botones-tipo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn-tipo {
+    padding: 15px;
+    background: #0D0D0D;
+    border: 1px solid #C28D39;
+    border-radius: 9px;
+    color: #EFE5D2;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-tipo:hover,
+.btn-tipo.activo {
+    background: #710912;
+    color: white;
+}
+
+.subservicio {
+    background: #181411;
+    border: 1px solid #55402A;
+    padding: 18px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.subservicio h3 {
+    color: #C28D39;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.opcion-lavado {
+    display: flex;
+    gap: 25px;
+    margin: 12px 0;
+}
+
+.opcion-lavado label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.opcion-lavado input {
+    width: auto;
+    margin: 0;
+    accent-color: #C28D39;
+}
+
+.precio-extra {
+    color: #C28D39;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.resumen {
+    background: #0D0D0D;
+    border: 1px solid #C28D39;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.resumen h3 {
+    color: #C28D39;
+    margin-bottom: 15px;
+}
+
+.dato {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #362822;
+}
+
+.dato span {
+    color: #C28D39;
+}
+
+.dato strong {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.total {
+    text-align: right;
+    font-size: 26px;
+    color: #C28D39;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.btn {
+    width: 100%;
+    padding: 16px;
+    background: #710912;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #C28D39;
+    color: #0D0D0D;
+}
+
+#confirmacion {
+    display: none;
+    text-align: center;
+    background: #241D19;
+    border: 2px solid #C28D39;
+    border-radius: 18px;
+    padding: 35px 25px;
+    margin-top: 25px;
+}
+
+#confirmacion h2 {
+    color: #C28D39;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.mensaje-final {
+    color: #C28D39;
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #0D0D0D;
+    border-top: 1px solid #C28D39;
+}
+
+@media(max-width: 800px) {
+
+    .grid {
+        grid-template-columns: 1fr;
     }
-    .barnav ul {
-        display: flex;
-        list-style: none;
-        gap: 25px;
-    }
-    .barnav li {
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: bold;
-        padding-bottom: 6px;
-    }
-    .barnav li a {
-        color: #ffffff;
-        text-decoration: none;
-        padding-bottom: 4px;
-        border-bottom: 2px solid transparent;
-        transition: 0.5s;
-    }
-    .barnav li a:hover {
-        color: #9c9a9a;
-        border-bottom: 2px solid #c28d39;
-        transition: 0.3s;
+
+    .columna-resumen {
+        position: static;
     }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+}
 
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background:
-                linear-gradient(rgba(13, 13, 13, 0.90), rgba(13, 13, 13, 0.95)),
-                radial-gradient(circle at top, #362822, #0D0D0D 70%);
-            color: #EFE5D2;
-            min-height: 100vh;
-        }
+@media(max-width: 600px) {
 
-        /* ENCABEZADO */
-        header {
-            background: #0D0D0D;
-            border-bottom: 2px solid #C28D39;
-            padding: 25px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+    .hero h1 {
+        font-size: 30px;
+    }
 
-        .logo {
-            color: #C28D39;
-            font-size: 28px;
-            font-style: italic;
-            font-weight: bold;
-        }
+    .card {
+        padding: 18px;
+    }
 
-        nav a {
-            color: #EFE5D2;
-            text-decoration: none;
-            margin-left: 25px;
-            transition: 0.3s;
-        }
+    .dato {
+        font-size: 14px;
+    }
 
-        nav a:hover {
-            color: #C28D39;
-        }
+}
 
-        /* PORTADA */
-        .hero {
-            text-align: center;
-            padding: 70px 20px 45px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            color: #C28D39;
-            font-style: italic;
-            margin-bottom: 12px;
-        }
-
-        .hero p {
-            color: #EFE5D2;
-            font-size: 18px;
-        }
-
-        .linea {
-            width: 90px;
-            height: 3px;
-            background: #710912;
-            margin: 20px auto;
-        }
-
-        /* CONTENEDOR */
-        .contenedor {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-            padding-bottom: 70px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 25px;
-        }
-
-        /* TARJETAS */
-        .card {
-            background: rgba(54, 40, 34, 0.92);
-            border: 1px solid rgba(194, 141, 57, 0.5);
-            border-radius: 18px;
-            padding: 28px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-            margin-bottom: 25px;
-        }
-
-        .card h2 {
-            color: #C28D39;
-            margin-bottom: 22px;
-            font-style: italic;
-        }
-
-        /* FORMULARIOS */
-        label {
-            display: block;
-            color: #EFE5D2;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid #C28D39;
-            background: #0D0D0D;
-            color: #EFE5D2;
-            font-size: 15px;
-            outline: none;
-            margin-bottom: 18px;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #710912;
-            box-shadow: 0 0 8px rgba(194, 141, 57, 0.35);
-        }
-
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .fila {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 18px;
-        }
-
-        /* HORARIOS */
-        .horarios {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .hora {
-            padding: 12px 5px;
-            background: #0D0D0D;
-            color: #EFE5D2;
-            border: 1px solid #C28D39;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: center;
-            transition: 0.2s;
-        }
-
-        .hora:hover {
-            background: #710912;
-        }
-
-        .hora.seleccionada {
-            background: #710912;
-            border-color: #C28D39;
-            box-shadow: 0 0 10px rgba(194,141,57,0.4);
-        }
-
-        .hora.ocupada {
-            background: #222;
-            color: #777;
-            border-color: #555;
-            cursor: not-allowed;
-            text-decoration: line-through;
-        }
-
-        /* SERVICIOS */
-        .servicios {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .servicio {
-            background: #0D0D0D;
-            border: 1px solid #C28D39;
-            border-radius: 10px;
-            padding: 15px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .servicio:hover,
-        .servicio.activo {
-            background: #710912;
-        }
-
-        .servicio strong {
-            color: #C28D39;
-        }
-
-        .servicio.activo strong {
-            color: #EFE5D2;
-        }
-
-        /* RESUMEN */
-        .resumen {
-            background: #0D0D0D;
-            border: 1px solid #C28D39;
-            border-radius: 15px;
-            padding: 20px;
-        }
-
-        .resumen h3 {
-            color: #C28D39;
-            margin-bottom: 15px;
-        }
-
-        .dato {
-            padding: 9px 0;
-            border-bottom: 1px solid #362822;
-        }
-
-        .dato:last-child {
-            border-bottom: none;
-        }
-
-        .dato span {
-            color: #C28D39;
-        }
-
-        .precio-total {
-            font-size: 25px;
-            color: #C28D39;
-            text-align: right;
-            margin-top: 15px;
-        }
-
-        /* POLÍTICA */
-        .politica {
-            background: rgba(113, 9, 18, 0.35);
-            border-left: 4px solid #C28D39;
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 20px;
-            line-height: 1.6;
-        }
-
-        /* RECORDATORIO */
-        .recordatorio {
-            background: #EFE5D2;
-            color: #362822;
-            padding: 18px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-
-        .recordatorio strong {
-            color: #710912;
-        }
-
-        /* BOTÓN */
-        .btn {
-            width: 100%;
-            border: none;
-            padding: 17px;
-            margin-top: 20px;
-            border-radius: 10px;
-            background: #710912;
-            color: #EFE5D2;
-            font-family: Georgia, serif;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #C28D39;
-            color: #0D0D0D;
-            transform: translateY(-2px);
-        }
-
-        /* MENSAJE */
-        #mensaje {
-            display: none;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
-            background: #C28D39;
-            color: #0D0D0D;
-            text-align: center;
-            font-weight: bold;
-        }
-
-        /* PIE */
-        footer {
-            background: #0D0D0D;
-            border-top: 1px solid #C28D39;
-            text-align: center;
-            padding: 25px;
-            color: #EFE5D2;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 800px) {
-
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .fila {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .servicios {
-                grid-template-columns: 1fr;
-            }
-
-            .horarios {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .card {
-                padding: 20px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <nav class="barnav">
-    <ul>
+</style></head><body><nav class="barnav">
+<ul>
     <li><a href="inicio.html">Inicio</a></li>
     <li><a href="catalogo.html">Cortes</a></li>
     <li><a href="Catproductos.html">Productos</a></li>
     <li><a href="paquetes.html">Paquetes</a></li>
-    <li><a href="Reservacion.html">Agendar Cita</a></li>
+    <li><a href="Reservacion.html">Agendar cita</a></li>
     <li><a href="ubicacion.html">Sucursales</a></li>
-    <li><a href="politicas.html">Politicas</a></li>
-    </ul>
-</nav>
+    <li><a href="politicas.html">Políticas</a></li>
+</ul>
+</nav><header>
+    <div class="logo">BARBERÍA ANTHONY</div>
+</header><section class="hero"><h1>Agenda tu cita</h1>
 
-<header>
+<div class="linea"></div>
 
-    <div class="logo">
-        BARBERÍA ANTHONY
+<p>Tu estilo, tu momento. Te esperamos.</p>
+
+</section><div class="contenedor"><div class="grid"><div><div class="card"><h2>1. Elige tu fecha</h2>
+
+<label>Fecha de la cita</label>
+
+<input type="date" id="fecha">
+
+</div><div class="card"><h2>2. Selecciona tu horario</h2>
+
+<label>Horario disponible</label>
+
+<select id="hora">
+
+    <option value="">Selecciona un horario</option>
+
+    <option>10:00 AM</option>
+    <option>11:00 AM</option>
+    <option>12:00 PM</option>
+    <option>1:00 PM</option>
+    <option>2:00 PM</option>
+    <option>3:00 PM</option>
+    <option>4:00 PM</option>
+    <option>5:00 PM</option>
+    <option>6:00 PM</option>
+    <option>7:00 PM</option>
+
+</select>
+
+</div><div class="card"><h2>3. Selecciona tu sucursal</h2>
+
+<label>Sucursal</label>
+
+<select id="sucursal">
+
+    <option value="">Selecciona una sucursal</option>
+
+    <option value="Centro">Centro</option>
+    <option value="Norte">Norte</option>
+    <option value="Plaza">Plaza</option>
+    <option value="Sur">Sur</option>
+
+</select>
+
+</div><div class="card"><h2>4. Elige tu barbero</h2>
+
+<label>Barbero disponible</label>
+
+<select id="barbero" disabled>
+
+    <option value="">Primero selecciona una sucursal</option>
+
+</select>
+
+</div><div class="card"><h2>5. Selecciona tu servicio</h2>
+
+<div class="botones-tipo">
+
+    <button type="button" class="btn-tipo" id="btnServicios">
+        Servicios
+    </button>
+
+    <button type="button" class="btn-tipo" id="btnPaquetes">
+        Paquetes
+    </button>
+
+</div>
+
+<div id="opcionesServicios" class="oculto">
+
+    <div class="subservicio">
+
+        <h3>Corte de pelo</h3>
+
+        <label>Selecciona tu tipo de corte</label>
+
+        <select id="corte">
+
+            <option value="">Selecciona un corte</option>
+
+            <option value="Buzz cut">Buzz cut</option>
+            <option value="Crew cut">Crew cut</option>
+            <option value="Side cut">Side cut</option>
+            <option value="Pompadour">Pompadour</option>
+            <option value="Slick back">Slick back</option>
+            <option value="Taper fade">Taper fade</option>
+            <option value="French crop">French crop</option>
+            <option value="Corte personalizado">Corte personalizado</option>
+
+        </select>
+
+        <div id="detallesCorte" class="oculto">
+
+            <label>Describe cómo deseas tu corte:</label>
+
+            <textarea
+                id="descripcionCorte"
+                placeholder="Escribe los detalles de tu corte..."
+            ></textarea>
+
+        </div>
+
+        <p class="precio-extra">Precio del corte: $170</p>
+
     </div>
 
-    <nav>
-        <a href="#agenda">Agenda</a>
-        <a href="#reserva">Reservar</a>
-    </nav>
+    <div class="subservicio">
 
-</header>
+        <h3>Arreglo de barba</h3>
 
+        <label>¿Deseas agregar arreglo de barba?</label>
 
-<section class="hero">
+        <select id="barba">
 
-    <h1>Tu estilo, tu momento</h1>
+            <option value="0">No</option>
+            <option value="150">Sí - $150</option>
 
-    <div class="linea"></div>
+        </select>
 
-    <p>Agenda tu cita con nuestros barberos</p>
+    </div>
 
-</section>
+    <div class="subservicio">
 
+        <h3>Lavado facial y de cabello</h3>
 
-<div class="contenedor">
+        <label>¿Deseas agregar este servicio?</label>
 
-    <div class="grid">
+        <div class="opcion-lavado">
 
-        <!-- COLUMNA IZQUIERDA -->
-        <div>
+            <label>
+                <input type="radio" name="lavado" value="40">
+                Sí
+            </label>
 
-            <!-- FECHA -->
-            <div class="card" id="agenda">
-
-                <h2>1. Elige tu fecha</h2>
-
-                <label for="fecha">
-                    Fecha de la cita
-                </label>
-
-                <input
-                    type="date"
-                    id="fecha"
-                    onchange="actualizarResumen()"
-                >
-
-            </div>
-
-
-            <!-- HORARIOS -->
-            <div class="card">
-
-                <h2>2. Horarios disponibles</h2>
-
-                <div class="horarios">
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        10:00 AM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        11:00 AM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        12:00 PM
-                    </button>
-
-                    <button class="hora ocupado">
-                        1:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        2:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        3:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        4:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        5:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        6:00 PM
-                    </button>
-
-                    <button class="hora" onclick="seleccionarHora(this)">
-                        7:00 PM
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- SERVICIOS -->
-            <div class="card">
-
-                <h2>3. Selecciona tu servicio</h2>
-
-                <div class="servicios">
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Corte', 170)"
-                    >
-                        <strong>Corte</strong>
-                        <br>
-                        $170
-                    </div>
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Corte + Barba', 250)"
-                    >
-                        <strong>Corte + Barba</strong>
-                        <br>
-                        $260
-                    </div>
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Barba', 160)"
-                    >
-                        <strong>Barba</strong>
-                        <br>
-                        $150
-                    </div>
-
-                    <div
-                        class="servicio"
-                        onclick="seleccionarServicio(this, 'Corte Premium', 300)"
-                    >
-                        <strong>Corte Premium</strong>
-                        <br>
-                        $300
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- BARBEROS -->
-            <div class="card">
-
-                <h2>4. Elige tu barbero</h2>
-
-                <label for="barbero">
-                  B  Anthony 
-                </label>
-
-                <select id="barbero" onchange="actualizarResumen()">
-
-                    <option value="">
-                        Selecciona un barbero
-                    </option>
-
-                    <option>
-                        Anthony
-                    </option>
-
-                    <option>
-                        Lia
-                    </option>
-
-                    <option>
-                        Amaia
-                    </option>
-
-                    <option>
-                        Axel
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <!-- DATOS DEL CLIENTE -->
-            <div class="card" id="reserva">
-
-                <h2>5. Datos del cliente</h2>
-
-                <div class="fila">
-
-                    <div>
-
-                        <label>
-                            Nombre completo
-                        </label>
-
-                        <input
-                            type="text"
-                            id="nombre"
-                            placeholder="Ej. Juan Dueñas"
-                            oninput="actualizarResumen()"
-                        >
-
-                    </div>
-
-                    <div>
-
-                        <label>
-                            Teléfono
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="telefono"
-                            placeholder="Ej. 449 123 4567"
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <label>
-                    Notas
-                </label>
-
-                <textarea
-                    id="notas"
-                    placeholder="Ej. Llego 10 min tarde / Es mi primera vez"
-                    oninput="actualizarResumen()"
-                ></textarea>
-
-            </div>
+            <label>
+                <input type="radio" name="lavado" value="0" checked>
+                No
+            </label>
 
         </div>
 
-
-        <!-- COLUMNA DERECHA -->
-        <div>
-
-            <div class="card">
-
-                <h2>Resumen de tu cita</h2>
-
-                <div class="resumen">
-
-                    <h3>Tu reservación</h3>
-
-                    <div class="dato">
-                        <span>Fecha:</span>
-                        <strong id="resumenFecha">
-                            Selecciona una fecha
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Hora:</span>
-                        <strong id="resumenHora">
-                            Selecciona un horario
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Servicio:</span>
-                        <strong id="resumenServicio">
-                            Selecciona un servicio
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Barbero:</span>
-                        <strong id="resumenBarbero">
-                            Selecciona un barbero
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Cliente:</span>
-                        <strong id="resumenCliente">
-                            -
-                        </strong>
-                    </div>
-
-                    <div class="dato">
-                        <span>Notas:</span>
-                        <strong id="resumenNotas">
-                            -
-                        </strong>
-                    </div>
-
-                    <div class="precio-total">
-                        Total: $<span id="resumenPrecio">0</span>
-                    </div>
-
-                </div>
-
-
-                <!-- RECORDATORIO -->
-                <div class="recordatorio">
-
-                    <strong> Recordatorio automático</strong>
-
-                    <p>
-                        Te esperamos mañana.
-                    </p>
-
-                    <small>
-                        Recibirás un recordatorio de tu cita.
-                    </small>
-
-                </div>
-
-
-                <!-- POLÍTICA -->
-                <div class="politica">
-
-                    <strong>
-                        Política de cancelación
-                    </strong>
-
-                    <p>
-                        Cancela con 2hrs de anticipación.
-                    </p>
-
-                    <p>
-                        En caso de no cancelar a tiempo,
-                        tu reservación puede perderse.
-                    </p>
-
-                </div>
-
-
-                <button
-                    class="btn"
-                    onclick="confirmarCita()"
-                >
-                    ✓ Confirmar cita
-                </button>
-
-                <div id="mensaje"></div>
-
-            </div>
-
-        </div>
+        <p class="precio-extra">Costo adicional: $40</p>
 
     </div>
 
 </div>
 
+<div id="opcionesPaquetes" class="oculto">
 
-<footer>
+    <div class="subservicio">
 
-    <p>
-        © 2026 Barbería Anthony
-    </p>
+        <h3>Paquetes disponibles</h3>
 
-    <p>
-        Estilo • Precisión • Elegancia
-    </p>
+        <label>Selecciona tu paquete</label>
 
-</footer>
+        <select id="paquete">
 
+            <option value="">Selecciona un paquete</option>
 
-<script>
+            <option value="Básico" data-precio="135">
+                Básico - $135
+            </option>
 
-    /* VARIABLES */
+            <option value="Premium" data-precio="187">
+                Premium - $187
+            </option>
 
-    let horaSeleccionada = "";
+            <option value="Anthony" data-precio="224">
+                Anthony - $224
+            </option>
 
-    let servicioSeleccionado = "";
+            <option value="Barba" data-precio="117">
+                Barba - $117
+            </option>
 
-    let precioSeleccionado = 0;
+            <option value="Estudiante" data-precio="102">
+                Estudiante - $102
+            </option>
 
+            <option value="VIP" data-precio="262.50">
+                VIP - $262.50
+            </option>
 
-    /* FECHA MÍNIMA = HOY */
+        </select>
 
-    const fechaInput = document.getElementById("fecha");
+    </div>
 
-    const hoy = new Date();
+</div>
 
-    const año = hoy.getFullYear();
+</div><div class="card"><h2>6. Datos del cliente</h2>
 
-    const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+<label>Nombre completo</label>
 
-    const dia = String(hoy.getDate()).padStart(2, "0");
+<input
+    type="text"
+    id="nombre"
+    placeholder="Escribe tu nombre completo"
+>
 
-    fechaInput.min = ${año}-${mes}-${dia};
+<label>Teléfono</label>
 
+<input
+    type="tel"
+    id="telefono"
+    placeholder="449 123 4567"
+>
 
-    /* SELECCIONAR HORA */
+</div></div><div class="columna-resumen"><div class="card"><h2>Resumen de tu reservación</h2>
 
-    function seleccionarHora(elemento) {
+<div class="resumen">
 
-        document
-            .querySelectorAll(".hora")
-            .forEach(hora => {
-                hora.classList.remove("seleccionada");
-            });
+    <h3>Detalles de tu cita</h3>
 
-        elemento.classList.add("seleccionada");
+    <div class="dato">
+        <span>Cliente:</span>
+        <strong id="rNombre">-</strong>
+    </div>
 
-        horaSeleccionada = elemento.innerText;
+    <div class="dato">
+        <span>Fecha:</span>
+        <strong id="rFecha">-</strong>
+    </div>
 
-        actualizarResumen();
+    <div class="dato">
+        <span>Hora:</span>
+        <strong id="rHora">-</strong>
+    </div>
+
+    <div class="dato">
+        <span>Sucursal:</span>
+        <strong id="rSucursal">-</strong>
+    </div>
+
+    <div class="dato">
+        <span>Barbero:</span>
+        <strong id="rBarbero">-</strong>
+    </div>
+
+    <div class="dato">
+        <span>Servicio:</span>
+        <strong id="rServicio">-</strong>
+    </div>
+
+    <div class="dato">
+        <span>Lavado:</span>
+        <strong id="rLavado">No</strong>
+    </div>
+
+    <div class="total">
+        Total: $<span id="rTotal">0.00</span>
+    </div>
+
+</div>
+
+<button class="btn" onclick="confirmarCita()">
+    Confirmar cita
+</button>
+
+</div><div id="confirmacion"><h2>¡Cita confirmada!</h2>
+
+<p>Tu reservación ha sido registrada correctamente.</p>
+
+<br>
+
+<p><strong>Cliente:</strong> <span id="cNombre"></span></p>
+
+<p><strong>Fecha:</strong> <span id="cFecha"></span></p>
+
+<p><strong>Horario:</strong> <span id="cHora"></span></p>
+
+<p><strong>Sucursal:</strong> <span id="cSucursal"></span></p>
+
+<p><strong>Barbero:</strong> <span id="cBarbero"></span></p>
+
+<p><strong>Servicio:</strong> <span id="cServicio"></span></p>
+
+<p><strong>Total:</strong> $<span id="cTotal"></span></p>
+
+<div class="mensaje-final">
+    ¡Te esperamos en Anthony Barber!
+</div>
+
+</div></div></div></div><footer><p>© 2026 Barbería Anthony</p>
+
+<br>
+
+<p>Estilo • Precisión • Elegancia</p>
+
+</footer><script>
+
+const fecha = document.getElementById("fecha");
+const hora = document.getElementById("hora");
+const sucursal = document.getElementById("sucursal");
+const barbero = document.getElementById("barbero");
+
+const btnServicios = document.getElementById("btnServicios");
+const btnPaquetes = document.getElementById("btnPaquetes");
+
+const opcionesServicios = document.getElementById("opcionesServicios");
+const opcionesPaquetes = document.getElementById("opcionesPaquetes");
+
+const corte = document.getElementById("corte");
+const barba = document.getElementById("barba");
+const paquete = document.getElementById("paquete");
+
+const hoy = new Date();
+
+fecha.min =
+    hoy.getFullYear() + "-" +
+    String(hoy.getMonth()+1).padStart(2,"0") + "-" +
+    String(hoy.getDate()).padStart(2,"0");
+
+const barberos = {
+
+    "Centro": ["Anthony", "Lia"],
+    "Norte": ["Amaia", "Axel"],
+    "Plaza": ["Anthony", "Axel"],
+    "Sur": ["Lia", "Amaia"]
+
+};
+
+let tipoSeleccionado = "";
+
+btnServicios.addEventListener("click", function() {
+
+    tipoSeleccionado = "Servicios";
+
+    opcionesServicios.style.display = "block";
+    opcionesPaquetes.style.display = "none";
+
+    btnServicios.classList.add("activo");
+    btnPaquetes.classList.remove("activo");
+
+    paquete.value = "";
+
+    actualizarResumen();
+
+});
+
+btnPaquetes.addEventListener("click", function() {
+
+    tipoSeleccionado = "Paquetes";
+
+    opcionesPaquetes.style.display = "block";
+    opcionesServicios.style.display = "none";
+
+    btnPaquetes.classList.add("activo");
+    btnServicios.classList.remove("activo");
+
+    corte.value = "";
+    barba.value = "0";
+    document.getElementById("descripcionCorte").value = "";
+    document.getElementById("detallesCorte").style.display = "none";
+
+    document.querySelector('input[name="lavado"][value="0"]').checked = true;
+
+    actualizarResumen();
+
+});
+
+sucursal.addEventListener("change", function() {
+
+    barbero.innerHTML = "";
+
+    if(this.value === "") {
+
+        barbero.disabled = true;
+
+        barbero.innerHTML =
+            '<option value="">Primero selecciona una sucursal</option>';
+
+    } else {
+
+        barbero.disabled = false;
+
+        barbero.innerHTML =
+            '<option value="">Selecciona un barbero</option>';
+
+        barberos[this.value].forEach(function(nombre) {
+
+            let opcion = document.createElement("option");
+
+            opcion.value = nombre;
+            opcion.textContent = nombre;
+
+            barbero.appendChild(opcion);
+
+        });
+
     }
 
+    actualizarResumen();
 
-    /* SELECCIONAR SERVICIO */
+});
 
-    function seleccionarServicio(elemento, nombre, precio) {
+corte.addEventListener("change", function() {
 
-        document
-            .querySelectorAll(".servicio")
-            .forEach(servicio => {
-                servicio.classList.remove("activo");
-            });
+    const detalles = document.getElementById("detallesCorte");
 
-        elemento.classList.add("activo");
+    if(this.value === "Corte personalizado") {
 
-        servicioSeleccionado = nombre;
+        detalles.style.display = "block";
 
-        precioSeleccionado = precio;
+    } else {
 
-        actualizarResumen();
+        detalles.style.display = "none";
+
+        document.getElementById("descripcionCorte").value = "";
+
     }
 
+    actualizarResumen();
 
-    /* ACTUALIZAR RESUMEN */
+});
 
-    function actualizarResumen() {
+function obtenerPrecio() {
 
-        const fecha = document.getElementById("fecha").value;
+    if(tipoSeleccionado === "Paquetes") {
 
-        const barbero =
-            document.getElementById("barbero").value;
+        const opcion = paquete.options[paquete.selectedIndex];
 
-        const nombre =
-            document.getElementById("nombre").value;
+        return Number(opcion.dataset.precio || 0);
 
-        const notas =
-            document.getElementById("notas").value;
-
-
-        /* FECHA */
-
-        if (fecha) {
-
-            const fechaObj =
-                new Date(fecha + "T12:00:00");
-
-            const opciones = {
-                weekday: "long",
-                day: "numeric",
-                month: "long"
-            };
-
-            let fechaTexto =
-                fechaObj.toLocaleDateString(
-                    "es-MX",
-                    opciones
-                );
-
-            fechaTexto =
-                fechaTexto.charAt(0).toUpperCase()
-                + fechaTexto.slice(1);
-
-            document.getElementById(
-                "resumenFecha"
-            ).innerText = fechaTexto;
-
-        }
-
-
-        /* HORA */
-
-        document.getElementById(
-            "resumenHora"
-        ).innerText =
-            horaSeleccionada || "Selecciona un horario";
-
-
-        /* SERVICIO */
-
-        document.getElementById(
-            "resumenServicio"
-        ).innerText =
-            servicioSeleccionado ||
-            "Selecciona un servicio";
-
-
-        /* BARBERO */
-
-        document.getElementById(
-            "resumenBarbero"
-        ).innerText =
-            barbero ||
-            "Selecciona un barbero";
-
-
-        /* CLIENTE */
-
-        document.getElementById(
-            "resumenCliente"
-        ).innerText =
-            nombre || "-";
-
-
-        /* NOTAS */
-
-        document.getElementById(
-            "resumenNotas"
-        ).innerText =
-            notas || "-";
-
-
-        /* PRECIO */
-
-        document.getElementById(
-            "resumenPrecio"
-        ).innerText =
-            precioSeleccionado;
     }
 
+    if(tipoSeleccionado === "Servicios") {
 
-    /* CONFIRMAR CITA */
+        let total = 0;
 
-    function confirmarCita() {
-
-        const fecha =
-            document.getElementById("fecha").value;
-
-        const barbero =
-            document.getElementById("barbero").value;
-
-        const nombre =
-            document.getElementById("nombre").value;
-
-        const telefono =
-            document.getElementById("telefono").value;
-
-        const notas =
-            document.getElementById("notas").value;
-
-
-        /* VALIDACIONES */
-
-        if (!fecha) {
-
-            alert("Selecciona una fecha.");
-
-            return;
+        if(corte.value) {
+            total += 170;
         }
 
-        if (!horaSeleccionada) {
+        total += Number(barba.value);
 
-            alert("Selecciona un horario.");
+        const lavado = document.querySelector('input[name="lavado"]:checked');
 
-            return;
+        if(lavado) {
+            total += Number(lavado.value);
         }
 
-        if (!servicioSeleccionado) {
+        return total;
 
-            alert("Selecciona un servicio.");
+    }
 
-            return;
+    return 0;
+
+}
+
+function obtenerServicio() {
+
+    if(tipoSeleccionado === "Paquetes") {
+
+        return paquete.value ?
+            "Paquete " + paquete.value : "-";
+
+    }
+
+    if(tipoSeleccionado === "Servicios") {
+
+        let servicios = [];
+
+        if(corte.value) {
+            servicios.push(corte.value);
         }
 
-        if (!barbero) {
-
-            alert("Selecciona un barbero.");
-
-            return;
+        if(Number(barba.value) > 0) {
+            servicios.push("Arreglo de barba");
         }
 
-        if (!nombre) {
+        return servicios.length > 0 ?
+            servicios.join(" + ") : "-";
 
-            alert("Escribe tu nombre.");
+    }
 
-            return;
-        }
+    return "-";
 
-        if (!telefono) {
+}
 
-            alert("Escribe tu teléfono.");
+function actualizarResumen() {
 
-            return;
-        }
+    let fechaTexto = "-";
 
+    if(fecha.value) {
 
-        /* FORMATO DE FECHA */
+        const partes = fecha.value.split("-");
 
-        const fechaObj =
-            new Date(fecha + "T12:00:00");
-
-        const opciones = {
-            weekday: "long",
+        fechaTexto = new Date(
+            Number(partes[0]),
+            Number(partes[1])-1,
+            Number(partes[2])
+        ).toLocaleDateString("es-MX", {
             day: "numeric",
-            month: "long"
-        };
-
-        let fechaTexto =
-            fechaObj.toLocaleDateString(
-                "es-MX",
-                opciones
-            );
-
-        fechaTexto =
-            fechaTexto.charAt(0).toUpperCase()
-            + fechaTexto.slice(1);
-
-
-        /* GUARDAR CITA */
-
-        const cita = {
-
-            fecha: fechaTexto,
-
-            fechaISO: fecha,
-
-            hora: horaSeleccionada,
-
-            servicio: servicioSeleccionado,
-
-            precio: precioSeleccionado,
-
-            barbero: barbero,
-
-            nombre: nombre,
-
-            telefono: telefono,
-
-            notas: notas,
-
-            recordatorio:
-                "Te esperamos mañana"
-
-        };
-
-
-        localStorage.setItem(
-            "citaBarberia",
-            JSON.stringify(cita)
-        );
-
-
-        /* MENSAJE DE WHATSAPP */
-
-        const numeroBarberia =
-            "524491234567";
-
-
-        const mensaje =
-
-` BARBERÍA ANTHONY - NUEVA CITA
-
-Cliente: ${nombre}
-
- Fecha: ${fechaTexto}
-
- Hora: ${horaSeleccionada}
-
- Servicio: ${servicioSeleccionado}
-
-Barbero: ${barbero}
-
- Precio: $${precioSeleccionado}
-
-Notas: ${notas || "Sin notas"}
-
- Recordatorio:
-Te esperamos mañana.
-
-Política:
-Cancela con 2hrs de anticipación.
-
-¡Gracias por reservar con nosotros!`;
-
-
-        const urlWhatsApp =
-            "https://wa.me/" +
-            numeroBarberia +
-            "?text=" +
-            encodeURIComponent(mensaje);
-
-
-        /* MENSAJE EN PANTALLA */
-
-        const mensajeDiv =
-            document.getElementById("mensaje");
-
-        mensajeDiv.style.display = "block";
-
-        mensajeDiv.innerText =
-            "✓ Cita guardada correctamente. Abriendo WhatsApp...";
-
-
-        /* ABRIR WHATSAPP */
-
-        setTimeout(() => {
-
-            window.open(
-                urlWhatsApp,
-                "_blank"
-            );
-
-        }, 800);
+            month: "long",
+            year: "numeric"
+        });
 
     }
 
+    const lavado = document.querySelector('input[name="lavado"]:checked');
 
-    /* CARGAR CITA GUARDADA */
+    document.getElementById("rNombre").innerText =
+        document.getElementById("nombre").value || "-";
 
-    window.addEventListener(
-        "load",
-        function () {
+    document.getElementById("rFecha").innerText =
+        fechaTexto;
 
-            const citaGuardada =
-                localStorage.getItem(
-                    "citaBarberia"
-                );
+    document.getElementById("rHora").innerText =
+        hora.value || "-";
 
-            if (citaGuardada) {
+    document.getElementById("rSucursal").innerText =
+        sucursal.value || "-";
 
-                console.log(
-                    "Última cita guardada:",
-                    JSON.parse(citaGuardada)
-                );
+    document.getElementById("rBarbero").innerText =
+        barbero.value || "-";
 
-            }
+    document.getElementById("rServicio").innerText =
+        obtenerServicio();
 
-        }
-    );
+    document.getElementById("rLavado").innerText =
+        lavado && Number(lavado.value) > 0 ? "Sí (+$40)" : "No";
 
-</script>
+    document.getElementById("rTotal").innerText =
+        obtenerPrecio().toFixed(2);
 
-</body>
+}
+
+document.querySelectorAll("input, select, textarea")
+.forEach(function(elemento) {
+
+    elemento.addEventListener("input", actualizarResumen);
+    elemento.addEventListener("change", actualizarResumen);
+
+});
+
+function confirmarCita() {
+
+    const nombre =
+        document.getElementById("nombre").value.trim();
+
+    const telefono =
+        document.getElementById("telefono").value.trim();
+
+    const descripcion =
+        document.getElementById("descripcionCorte").value.trim();
+
+    const precio = obtenerPrecio();
+
+    const servicioTexto = obtenerServicio();
+
+    if(!fecha.value || fecha.value < fecha.min) {
+        alert("Selecciona una fecha válida.");
+        return;
+    }
+
+    if(!hora.value) {
+        alert("Selecciona un horario.");
+        return;
+    }
+
+    if(!sucursal.value) {
+        alert("Selecciona una sucursal.");
+        return;
+    }
+
+    if(!barbero.value) {
+        alert("Selecciona un barbero.");
+        return;
+    }
+
+    if(!tipoSeleccionado) {
+        alert("Selecciona Servicios o Paquetes.");
+        return;
+    }
+
+    if(tipoSeleccionado === "Servicios" && !corte.value && barba.value === "0") {
+        alert("Selecciona al menos un servicio.");
+        return;
+    }
+
+    if(tipoSeleccionado === "Servicios" && corte.value === "Corte personalizado" && !descripcion) {
+        alert("Describe cómo deseas tu corte personalizado.");
+        return;
+    }
+
+    if(tipoSeleccionado === "Paquetes" && !paquete.value) {
+        alert("Selecciona un paquete.");
+        return;
+    }
+
+    if(!nombre) {
+        alert("Escribe tu nombre.");
+        return;
+    }
+
+const telefonoLimpio = telefono.replace(/\D/g, "");
+
+if(telefonoLimpio.length !== 10) {
+    alert("Escribe un teléfono válido de 10 dígitos.");
+    return;
+}
+
+    const partes = fecha.value.split("-");
+
+    const fechaTexto = new Date(
+        Number(partes[0]),
+        Number(partes[1])-1,
+        Number(partes[2])
+    ).toLocaleDateString("es-MX", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+
+    document.getElementById("cNombre").innerText = nombre;
+    document.getElementById("cFecha").innerText = fechaTexto;
+    document.getElementById("cHora").innerText = hora.value;
+    document.getElementById("cSucursal").innerText = sucursal.value;
+    document.getElementById("cBarbero").innerText = barbero.value;
+    document.getElementById("cServicio").innerText = servicioTexto;
+    document.getElementById("cTotal").innerText = precio.toFixed(2);
+
+    const cita = {
+
+        nombre: nombre,
+        telefono: telefono,
+        fecha: fechaTexto,
+        horario: hora.value,
+        sucursal: sucursal.value,
+        barbero: barbero.value,
+        servicio: servicioTexto,
+        descripcion: descripcion,
+        lavado: document.querySelector('input[name="lavado"]:checked').value,
+        total: precio
+
+    };
+
+    localStorage.setItem("citaAnthony", JSON.stringify(cita));
+
+    document.getElementById("confirmacion").style.display = "block";
+
+    document.getElementById("confirmacion").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+</script></body>
 </html>

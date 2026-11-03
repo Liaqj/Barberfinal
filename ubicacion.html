@@ -1,79 +1,72 @@
+
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Anthony Barber - Sucursales</title>
 
     <style>
-
-            .barnav {
-        background-color: rgba(0, 0, 0, 1);
-        width: 100%;
-        padding: 20px 40px;
-        color: #ffffff;
-        justify-items: center;
-        font-family: sans-serif;
-    }
-    .barnav ul {
-        display: flex;
-        list-style: none;
-        gap: 25px;
-    }
-    .barnav li {
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: bold;
-        padding-bottom: 6px;
-    }
-    .barnav li a {
-        color: #ffffff;
-        text-decoration: none;
-        padding-bottom: 4px;
-        border-bottom: 2px solid transparent;
-        transition: 0.5s;
-    }
-    .barnav li a:hover {
-        color: #9c9a9a;
-        border-bottom: 2px solid #c28d39;
-        transition: 0.3s;
-    }
-
-        /* ==============================
-           ESTILOS GENERALES
-        ============================== */
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        .barnav {
+            background: #000;
+            width: 100%;
+            padding: 20px 40px;
+            color: white;
+            justify-items: center;
+            font-family: sans-serif;
+        }
+
+        .barnav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .barnav li {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding-bottom: 6px;
+        }
+
+        .barnav li a {
+            color: white;
+            text-decoration: none;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: .3s;
+        }
+
+        .barnav li a:hover {
+            color: #b61b1b;
+            border-bottom: 2px solid #D4141E;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #0d0d0d;
+            background-color: #0D0D0D;
             color: white;
         }
 
-
-        /* ==============================
-           ENCABEZADO
-        ============================== */
-
         header {
-            background-color: #111111;
-            border-bottom: 1px solid #d4af37;
+            background: #111;
+            border-bottom: 2px solid #B5121B;
             padding: 22px 8%;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            color: #d4af37;
+            color: #a00d0d;
             font-size: 28px;
             font-weight: bold;
             letter-spacing: 2px;
@@ -95,21 +88,17 @@
         }
 
         nav a:hover {
-            color: #d4af37;
+            color: #D4141E;
         }
 
-
-        /* ==============================
-           PORTADA
-        ============================== */
-
+        /* PORTADA */
         .hero {
             text-align: center;
             padding: 70px 20px 50px;
         }
 
         .hero p {
-            color: #d4af37;
+            color: #D4141E;
             font-size: 14px;
             letter-spacing: 6px;
             margin-bottom: 15px;
@@ -121,50 +110,42 @@
         }
 
         .hero h1 span {
-            color: #d4af37;
+            color: #D4141E;
         }
 
         .hero h3 {
-            color: #aaaaaa;
+            color: #CCC;
             font-weight: normal;
         }
 
-
-        /* ==============================
-           CONTENEDOR DE SUCURSALES
-        ============================== */
-
+        /* SUCURSALES */
         .sucursales {
             width: 90%;
             max-width: 1100px;
             margin: auto;
             padding-bottom: 70px;
-
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 25px;
         }
 
-
-        /* ==============================
-           TARJETAS
-        ============================== */
-
+        /* TARJETAS */
         .card {
-            background-color: #171717;
-            border: 1px solid #333333;
+            background: #171717;
+            border: 1px solid #5A171B;
             border-radius: 12px;
             padding: 28px;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            border-color: #d4af37;
+            border-color: #D4141E;
+            box-shadow: 0 8px 20px rgba(212,20,30,.15);
         }
 
         .numero {
-            color: #d4af37;
+            color: #ad0e0e;
             font-size: 13px;
             font-weight: bold;
             letter-spacing: 3px;
@@ -175,28 +156,21 @@
             font-size: 28px;
             text-transform: uppercase;
             margin-bottom: 22px;
+            color: white;
         }
 
-
-        /* ==============================
-           INFORMACIÓN
-        ============================== */
-
+        /* INFORMACIÓN */
         .info {
-            color: #cccccc;
+            color: #CCC;
             line-height: 1.6;
             margin-bottom: 18px;
         }
 
         .info strong {
-            color: #d4af37;
+            color: #D4141E;
         }
 
-
-        /* ==============================
-           ESTADO ABIERTA / CERRADA
-        ============================== */
-
+        /* ESTADO */
         .estado {
             display: inline-block;
             padding: 8px 15px;
@@ -207,56 +181,47 @@
         }
 
         .abierta {
-            color: #4dff91;
-            background-color: #12351f;
-            border: 1px solid #2f9e5b;
+            color: #4DFF91;
+            background: #12351F;
+            border: 1px solid #2F9E5B;
         }
 
         .cerrada {
-            color: #ff6565;
-            background-color: #3a1515;
-            border: 1px solid #a33a3a;
+            color: #FF6565;
+            background: #3A1515;
+            border: 1px solid #A33A3A;
         }
 
-
-        /* ==============================
-           BOTÓN UBICACIÓN
-        ============================== */
-
+        /* BOTÓN UBICACIÓN */
         .boton {
             display: block;
             width: 100%;
             padding: 13px;
-
-            background-color: #d4af37;
-            color: #111111;
-
+            background: #B5121B;
+            color: white;
             text-align: center;
             text-decoration: none;
             font-weight: bold;
-
             border-radius: 6px;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .boton:hover {
-            background-color: white;
+            background: #970d0d;
+            color: #111;
+            transform: translateY(-2px);
         }
 
-
-        /* ==============================
-           PIE DE PÁGINA
-        ============================== */
-
+        /* FOOTER */
         footer {
-            background-color: #111111;
-            border-top: 1px solid #333333;
+            background: #111;
+            border-top: 2px solid #B5121B;
             text-align: center;
             padding: 30px;
         }
 
         footer h2 {
-            color: #d4af37;
+            color: #a70f0f;
             margin-bottom: 10px;
         }
 
@@ -265,17 +230,12 @@
         }
 
         footer p {
-            color: #888888;
+            color: #CCC;
             font-size: 14px;
         }
 
-
-        /* ==============================
-           DISEÑO PARA CELULAR
-        ============================== */
-
+        /* CELULAR */
         @media (max-width: 750px) {
-
             header {
                 flex-direction: column;
                 gap: 20px;
@@ -293,485 +253,254 @@
             .sucursales {
                 grid-template-columns: 1fr;
             }
-        }
 
+            .barnav {
+                padding: 20px 15px;
+            }
+
+            .barnav ul {
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 
-
 <body>
 
-    <nav class="barnav">
+<nav class="barnav">
     <ul>
-    <li><a href="inicio.html">Inicio</a></li>
-    <li><a href="catalogo.html">Cortes</a></li>
-    <li><a href="Catproductos.html">Productos</a></li>
-    <li><a href="paquetes.html">Paquetes</a></li>
-    <li><a href="Reservacion.html">Agendar Cita</a></li>
-    <li><a href="ubicacion.html">Sucursales</a></li>
-    <li><a href="politicas.html">Politicas</a></li>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="catalogo.html">Cortes</a></li>
+        <li><a href="Catproductos.html">Productos</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="Reservacion.html">Agendar Cita</a></li>
+        <li><a href="ubicacion.html">Sucursales</a></li>
+        <li><a href="politicas.html">Politicas</a></li>
     </ul>
 </nav>
 
+<header>
+    <div class="logo">
+        ANTHONY
+        <span>BARBER</span>
+    </div>
+</header>
 
+<section class="hero">
+    <p>ANTHONY BARBER</p>
 
-    <!-- ==============================
-         ENCABEZADO
-    ============================== -->
+    <h1>
+        NUESTRAS <span>SUCURSALES</span>
+    </h1>
 
-    <header>
+    <h3>
+        Encuentra tu sucursal más cercana
+    </h3>
+</section>
 
-        <div class="logo">
-            ANTHONY
-            <span>BARBER</span>
+<section class="sucursales" id="sucursales">
+
+    <!-- SUCURSAL 1 -->
+    <div class="card">
+        <div class="numero">SUCURSAL 01</div>
+
+        <h2>Centro</h2>
+
+        <div class="info">
+            <strong>Ubicación</strong>
+            <br>
+            Av. Principal #125, Zona Centro
         </div>
 
-    </header>
-
-
-    <!-- ==============================
-         TÍTULO PRINCIPAL
-    ============================== -->
-
-    <section class="hero">
-
-        <p>ANTHONY BARBER</p>
-
-        <h1>
-            NUESTRAS <span>SUCURSALES</span>
-        </h1>
-
-        <h3>
-            Encuentra tu sucursal más cercana
-        </h3>
-
-    </section>
-
-
-    <!-- ==============================
-         SUCURSALES
-    ============================== -->
-
-    <section class="sucursales" id="sucursales">
-
-
-        <!-- ==============================
-             SUCURSAL 1
-        ============================== -->
-
-        <div class="card">
-
-            <div class="numero">
-                SUCURSAL 01
-            </div>
-
-            <h2>
-                Centro
-            </h2>
-
-            <div class="info">
-
-                <strong>Ubicación</strong>
-                <br>
-
-                Av. Principal #125, Zona Centro
-
-            </div>
-
-            <div class="info">
-
-                <strong>Horario</strong>
-                <br>
-
-                Lunes a Sábado: 9:00 AM - 8:00 PM
-                <br>
-
-                Domingo: 10:00 AM - 4:00 PM
-
-            </div>
-
-            <div id="estado1" class="estado">
-                Verificando...
-            </div>
-
-            <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                class="boton">
-
-                Ver ubicación
-
-            </a>
-
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Lunes a Sábado: 9:00 AM - 8:00 PM
+            <br>
+            Domingo: 10:00 AM - 4:00 PM
         </div>
 
-
-        <!-- ==============================
-             SUCURSAL 2
-        ============================== -->
-
-        <div class="card">
-
-            <div class="numero">
-                SUCURSAL 02
-            </div>
-
-            <h2>
-                Norte
-            </h2>
-
-            <div class="info">
-
-                <strong>Ubicación</strong>
-                <br>
-
-                Av. Independencia #245, Zona Norte
-
-            </div>
-
-            <div class="info">
-
-                <strong>Horario</strong>
-                <br>
-
-                Lunes a Sábado: 9:00 AM - 8:00 PM
-                <br>
-
-                Domingo: 10:00 AM - 4:00 PM
-
-            </div>
-
-            <div id="estado2" class="estado">
-                Verificando...
-            </div>
-
-            <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                class="boton">
-
-                Ver ubicación
-
-            </a>
-
+        <div id="estado1" class="estado">
+            Verificando...
         </div>
 
+        <a
+            href="https://www.google.com/maps/place/Barber+Resort/@21.8695264,-102.3046663,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ed711fa7726d:0x1d93ef29bf4c179b!8m2!3d21.8695264!4d-102.3046663!16s%2Fg%2F11fnpb26b5?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
 
-        <!-- ==============================
-             SUCURSAL 3
-        ============================== -->
+    <!-- SUCURSAL 2 -->
+    <div class="card">
+        <div class="numero">SUCURSAL 02</div>
 
-        <div class="card">
+        <h2>Norte</h2>
 
-            <div class="numero">
-                SUCURSAL 03
-            </div>
-
-            <h2>
-                Sur
-            </h2>
-
-            <div class="info">
-
-                <strong>Ubicación</strong>
-                <br>
-
-                Blvd. Las Américas #350, Zona Sur
-
-            </div>
-
-            <div class="info">
-
-                <strong>Horario</strong>
-                <br>
-
-                Lunes a Sábado: 10:00 AM - 9:00 PM
-                <br>
-
-                Domingo: 11:00 AM - 5:00 PM
-
-            </div>
-
-            <div id="estado3" class="estado">
-                Verificando...
-            </div>
-
-            <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                class="boton">
-
-                Ver ubicación
-
-            </a>
-
+        <div class="info">
+            <strong>Ubicación</strong>
+            <br>
+            Av. Independencia #245, Zona Norte
         </div>
 
-
-        <!-- ==============================
-             SUCURSAL 4
-        ============================== -->
-
-        <div class="card">
-
-            <div class="numero">
-                SUCURSAL 04
-            </div>
-
-            <h2>
-                Plaza
-            </h2>
-
-            <div class="info">
-
-                <strong>Ubicación</strong>
-                <br>
-
-                Plaza Principal, Local #18
-
-            </div>
-
-            <div class="info">
-
-                <strong>Horario</strong>
-                <br>
-
-                Lunes a Sábado: 10:00 AM - 9:00 PM
-                <br>
-
-                Domingo: 11:00 AM - 5:00 PM
-
-            </div>
-
-            <div id="estado4" class="estado">
-                Verificando...
-            </div>
-
-            <a
-                href="https://www.google.com/maps"
-                target="_blank"
-                class="boton">
-
-                Ver ubicación
-
-            </a>
-
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Lunes a Sábado: 9:00 AM - 8:00 PM
+            <br>
+            Domingo: 10:00 AM - 4:00 PM
         </div>
 
-    </section>
+        <div id="estado2" class="estado">
+            Verificando...
+        </div>
 
+        <a
+            href="https://www.google.com/maps/place/MP+Barber+Club/@21.9078035,-102.2971769,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ef5fb764fe53:0x8a752f35b3466f71!8m2!3d21.9078035!4d-102.2971769!16s%2Fg%2F11khspbm1j?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
 
-    <!-- ==============================
-         PIE DE PÁGINA
-    ============================== -->
+    <!-- SUCURSAL 3 -->
+    <div class="card">
+        <div class="numero">SUCURSAL 03</div>
 
-    <footer>
+        <h2>Sur</h2>
 
-        <h2>
-            ANTHONY <span>BARBER</span>
-        </h2>
+        <div class="info">
+            <strong>Ubicación</strong>
+            <br>
+            Blvd. Las Américas #350, Zona Sur
+        </div>
 
-        <p>
-            © 2026 Anthony Barber | Todos los derechos reservados
-        </p>
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Lunes a Sábado: 10:00 AM - 9:00 PM
+            <br>
+            Domingo: 11:00 AM - 5:00 PM
+        </div>
 
-    </footer>
+        <div id="estado3" class="estado">
+            Verificando...
+        </div>
 
+        <a
+            href="https://www.google.com/maps/place/El+Club+de+los+27+%7C+Barber%C3%ADa+Premium+%2B+Bar+de+Autor/@21.9300431,-102.3047219,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ef006efd17e7:0x6c169d389dddbaf2!8m2!3d21.9300431!4d-102.3047219!16s%2Fg%2F11z7gzxb44?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
 
-    <!-- ==============================
-         JAVASCRIPT
-    ============================== -->
+    <!-- SUCURSAL 4 -->
+    <div class="card">
+        <div class="numero">SUCURSAL 04</div>
 
-    <script>
+        <h2>Plaza</h2>
 
-        /*
-         * Esta función determina
-         * automáticamente si una sucursal
-         * está abierta o cerrada.
-         */
+        <div class="info">
+            <strong>Blvd. Colosio</strong>
+            <br>
+            Blvd. Luis Donaldo Colosio Murrieta 346,
+            Puerto las Hadas, 20110
+        </div>
 
-        function comprobarEstado(
-            id,
-            apertura,
-            cierre,
-            aperturaDomingo,
-            cierreDomingo
-        ) {
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Lunes a Sábado: 10:00 AM - 9:00 PM
+            <br>
+            Domingo: 11:00 AM - 5:00 PM
+        </div>
 
-            const ahora = new Date();
+        <div id="estado4" class="estado">
+            Verificando...
+        </div>
 
-            const dia = ahora.getDay();
+        <a
+            href="https://www.google.com/maps/place/Barber%C3%ADa+Tres46+%2F+Sucursal+Colosio/@21.9246154,-102.3103684,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ef04e05a6607:0x44c498f755c22759!8m2!3d21.9246154!4d-102.3103684!16s%2Fg%2F11c5h053xn?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
 
-            const hora =
-                ahora.getHours() +
-                ahora.getMinutes() / 60;
+</section>
 
-            let horaApertura;
-            let horaCierre;
+<footer>
+    <h2>
+        ANTHONY <span>BARBER</span>
+    </h2>
 
+    <p>
+        © 2026 Anthony Barber | Todos los derechos reservados
+    </p>
+</footer>
 
-            /* ==============================
-               SI ES DOMINGO
-            ============================== */
+<script>
+    /* COMPROBAR SI LA SUCURSAL ESTÁ ABIERTA */
 
-            if (dia === 0) {
+    function comprobarEstado(
+        id,
+        apertura,
+        cierre,
+        aperturaDomingo,
+        cierreDomingo
+    ) {
+        const ahora = new Date();
+        const dia = ahora.getDay();
 
-                horaApertura = aperturaDomingo;
-                horaCierre = cierreDomingo;
+        const hora =
+            ahora.getHours() +
+            ahora.getMinutes() / 60;
 
-            }
+        let horaApertura;
+        let horaCierre;
 
-
-            /* ==============================
-               LUNES A SÁBADO
-            ============================== */
-
-            else {
-
-                horaApertura = apertura;
-                horaCierre = cierre;
-
-            }
-
-
-            const elemento =
-                document.getElementById(id);
-
-
-            /* ==============================
-               COMPROBAR ESTADO
-            ============================== */
-
-            if (
-                hora >= horaApertura &&
-                hora < horaCierre
-            ) {
-
-                elemento.textContent =
-                    "ABIERTA AHORA";
-
-                elemento.classList.remove(
-                    "cerrada"
-                );
-
-                elemento.classList.add(
-                    "abierta"
-                );
-
-            }
-
-            else {
-
-                elemento.textContent =
-                    "CERRADA";
-
-                elemento.classList.remove(
-                    "abierta"
-                );
-
-                elemento.classList.add(
-                    "cerrada"
-                );
-
-            }
-
+        if (dia === 0) {
+            horaApertura = aperturaDomingo;
+            horaCierre = cierreDomingo;
+        } else {
+            horaApertura = apertura;
+            horaCierre = cierre;
         }
 
+        const elemento = document.getElementById(id);
 
-        /* ==============================
-           SUCURSAL 1
-        ============================== */
+        if (
+            hora >= horaApertura &&
+            hora < horaCierre
+        ) {
+            elemento.textContent = "ABIERTA AHORA";
+            elemento.classList.remove("cerrada");
+            elemento.classList.add("abierta");
+        } else {
+            elemento.textContent = "CERRADA";
+            elemento.classList.remove("abierta");
+            elemento.classList.add("cerrada");
+        }
+    }
 
-        comprobarEstado(
-            "estado1",
-            9,
-            20,
-            10,
-            16
-        );
+    /* SUCURSALES */
 
+    comprobarEstado("estado1", 9, 20, 10, 16);
+    comprobarEstado("estado2", 9, 20, 10, 16);
+    comprobarEstado("estado3", 10, 21, 11, 17);
+    comprobarEstado("estado4", 10, 21, 11, 17);
 
-        /* ==============================
-           SUCURSAL 2
-        ============================== */
+    /* ACTUALIZAR CADA MINUTO */
 
-        comprobarEstado(
-            "estado2",
-            9,
-            20,
-            10,
-            16
-        );
-
-
-        /* ==============================
-           SUCURSAL 3
-        ============================== */
-
-        comprobarEstado(
-            "estado3",
-            10,
-            21,
-            11,
-            17
-        );
-
-
-        /* ==============================
-           SUCURSAL 4
-        ============================== */
-
-        comprobarEstado(
-            "estado4",
-            10,
-            21,
-            11,
-            17
-        );
-
-
-        /* ==============================
-           ACTUALIZAR CADA MINUTO
-        ============================== */
-
-        setInterval(function () {
-
-            comprobarEstado(
-                "estado1",
-                9,
-                20,
-                10,
-                16
-            );
-
-            comprobarEstado(
-                "estado2",
-                9,
-                20,
-                10,
-                16
-            );
-
-            comprobarEstado(
-                "estado3",
-                10,
-                21,
-                11,
-                17
-            );
-
-            comprobarEstado(
-                "estado4",
-                10,
-                21,
-                11,
-                17
-            );
-
-        }, 60000);
-
-    </script>
+    setInterval(function() {
+        comprobarEstado("estado1", 9, 20, 10, 16);
+        comprobarEstado("estado2", 9, 20, 10, 16);
+        comprobarEstado("estado3", 10, 21, 11, 17);
+        comprobarEstado("estado4", 10, 21, 11, 17);
+    }, 60000);
+</script>
 
 </body>
-
 </html>
