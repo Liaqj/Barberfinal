@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,68 +8,76 @@
 
     <style>
 
-    .barnav {
-        background-color: rgba(0, 0, 0, 1);
-        width: 100%;
-        padding: 20px 40px;
-        color: #ffffff;
-        justify-items: center;
-        font-family: sans-serif;
-    }
-    .barnav ul {
-        display: flex;
-        list-style: none;
-        gap: 25px;
-    }
-    .barnav li {
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: bold;
-        padding-bottom: 6px;
-    }
-    .barnav li a {
-        color: #ffffff;
-        text-decoration: none;
-        padding-bottom: 4px;
-        border-bottom: 2px solid transparent;
-        transition: 0.5s;
-    }
-    .barnav li a:hover {
-        color: #9c9a9a;
-        border-bottom: 2px solid #c28d39;
-        transition: 0.3s;
-    }
-
-
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: #0d0d0d;
-            color: #f5f5f5;
+            background: #0D0D0D;
+            color: #EFE5D2;
+        }
+
+        /* BARRA DE NAVEGACIÓN */
+        .barnav {
+            background-color: #0D0D0D;
+            width: 100%;
+            padding: 20px 40px;
+            color: #EFE5D2;
+            display: flex;
+            justify-content: center;
+            font-family: sans-serif;
+            border-bottom: 2px solid #710912;
+        }
+
+        .barnav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .barnav li {
+            color: #EFE5D2;
+            font-size: 16px;
+            font-weight: bold;
+            padding-bottom: 6px;
+        }
+
+        .barnav li a {
+            color: #EFE5D2;
+            text-decoration: none;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .barnav li a:hover {
+            color: #C28D39;
+            border-bottom: 2px solid #710912;
         }
 
         /* ENCABEZADO */
         .encabezado {
-            background: #111111;
+            background: #710912;
             padding: 25px 20px;
             text-align: center;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 3px solid #C28D39;
         }
 
         .encabezado h1 {
             margin: 0;
-            color: #d4af37;
+            color: #EFE5D2;
             font-size: 32px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .encabezado p {
-            color: #cccccc;
+            color: #EFE5D2;
             margin: 8px 0 0;
         }
 
@@ -83,7 +92,8 @@
             background: #181818;
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 5px 20px rgba(113, 9, 18, 0.25);
+            border: 1px solid #362822;
         }
 
         .titulo {
@@ -93,12 +103,12 @@
 
         .titulo h2 {
             margin: 0;
-            color: #d4af37;
+            color: #C28D39;
             font-size: 28px;
         }
 
         .titulo p {
-            color: #aaa;
+            color: #EFE5D2;
             margin-top: 8px;
         }
 
@@ -110,8 +120,8 @@
         }
 
         .politica {
-            background: #222222;
-            border: 1px solid #333;
+            background: #0D0D0D;
+            border: 1px solid #362822;
             border-radius: 10px;
             padding: 20px;
             transition: 0.3s;
@@ -119,8 +129,8 @@
 
         .politica:hover {
             transform: translateY(-3px);
-            border-color: #d4af37;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.15);
+            border-color: #710912;
+            box-shadow: 0 5px 15px rgba(113, 9, 18, 0.25);
         }
 
         .numero {
@@ -129,8 +139,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #d4af37;
-            color: #111;
+            background: #710912;
+            color: #EFE5D2;
             font-weight: bold;
             border-radius: 50%;
             margin-bottom: 12px;
@@ -138,13 +148,13 @@
 
         .politica h3 {
             margin: 0 0 10px;
-            color: #d4af37;
+            color: #C28D39;
             font-size: 19px;
         }
 
         .politica p {
             margin: 0;
-            color: #ddd;
+            color: #EFE5D2;
             line-height: 1.5;
             font-size: 15px;
         }
@@ -157,24 +167,27 @@
             padding: 13px;
             text-align: center;
             text-decoration: none;
-            background: #d4af37;
-            color: #111;
+            background: #710912;
+            color: #EFE5D2;
             font-weight: bold;
             border-radius: 7px;
+            border: 1px solid #C28D39;
             transition: 0.3s;
         }
 
         .boton:hover {
-            background: #a00000;
-            color: white;
+            background: #C28D39;
+            color: #0D0D0D;
         }
 
         /* PIE */
         footer {
             text-align: center;
             padding: 20px;
-            color: #888;
+            color: #C28D39;
             font-size: 14px;
+            background: #0D0D0D;
+            border-top: 1px solid #362822;
         }
 
         /* CELULAR */
@@ -195,30 +208,38 @@
             .titulo h2 {
                 font-size: 24px;
             }
+
+            .barnav {
+                padding: 15px;
+            }
+
+            .barnav ul {
+                gap: 15px;
+            }
         }
+
     </style>
 </head>
 
 <body>
 
     <nav class="barnav">
-    <ul>
-    <li><a href="inicio.html">Inicio</a></li>
-    <li><a href="catalogo.html">Cortes</a></li>
-    <li><a href="Catproductos.html">Productos</a></li>
-    <li><a href="paquetes.html">Paquetes</a></li>
-    <li><a href="Reservacion.html">Agendar Cita</a></li>
-    <li><a href="ubicacion.html">Sucursales</a></li>
-    <li><a href="politicas.html">Politicas</a></li>
-    </ul>
-</nav>
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="catalogo.html">Cortes</a></li>
+            <li><a href="Catproductos.html">Productos</a></li>
+            <li><a href="paquetes.html">Paquetes</a></li>
+            <li><a href="Reservacion.html">Agendar Cita</a></li>
+            <li><a href="ubicacion.html">Sucursales</a></li>
+            <li><a href="politicas.html">Politicas</a></li>
+        </ul>
+    </nav>
 
     <!-- ENCABEZADO -->
     <header class="encabezado">
         <h1>Anthony Barbería</h1>
         <p>Políticas y condiciones del servicio</p>
     </header>
-
 
     <!-- CONTENIDO -->
     <main class="contenedor">
@@ -233,28 +254,20 @@
                 </p>
             </div>
 
-
             <div class="politicas">
 
-                <!-- POLÍTICA 1 -->
                 <div class="politica">
                     <div class="numero">1</div>
-
                     <h3>Citas</h3>
-
                     <p>
                         Las citas deben agendarse previamente indicando
                         día, horario, servicio y barbero.
                     </p>
                 </div>
 
-
-                <!-- POLÍTICA 2 -->
                 <div class="politica">
                     <div class="numero">2</div>
-
                     <h3>Tolerancia</h3>
-
                     <p>
                         Contamos con 10 minutos de tolerancia. Después
                         de este tiempo, la cita podrá cancelarse o
@@ -262,65 +275,45 @@
                     </p>
                 </div>
 
-
-                <!-- POLÍTICA 3 -->
                 <div class="politica">
                     <div class="numero">3</div>
-
                     <h3>Métodos de pago</h3>
-
                     <p>
                         Aceptamos efectivo, tarjeta y transferencia
                         bancaria.
                     </p>
                 </div>
 
-
-                <!-- POLÍTICA 4 -->
                 <div class="politica">
                     <div class="numero">4</div>
-
                     <h3>Anticipo y reembolsos</h3>
-
                     <p>
                         Para reservar una cita se solicita un 50% de
                         anticipo. El anticipo no es reembolsable.
                     </p>
                 </div>
 
-
-                <!-- POLÍTICA 5 -->
                 <div class="politica">
                     <div class="numero">5</div>
-
                     <h3>Promoción</h3>
-
                     <p>
                         Al completar 10 cortes, el siguiente corte
                         es completamente gratis.
                     </p>
                 </div>
 
-
-                <!-- POLÍTICA 6 -->
                 <div class="politica">
                     <div class="numero">6</div>
-
                     <h3>Servicio</h3>
-
                     <p>
                         Actualmente no contamos con servicio
                         a domicilio.
                     </p>
                 </div>
 
-
-                <!-- POLÍTICA 7 -->
                 <div class="politica">
                     <div class="numero">7</div>
-
                     <h3>Horario</h3>
-
                     <p>
                         Atendemos todos los días de 12:00 p. m.
                         a 9:00 p. m.
@@ -328,7 +321,6 @@
                 </div>
 
             </div>
-
 
             <!-- BOTÓN -->
             <a href="Reservacion.html" class="boton">
@@ -338,7 +330,6 @@
         </section>
 
     </main>
-
 
     <!-- PIE DE PÁGINA -->
     <footer>
