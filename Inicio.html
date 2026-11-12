@@ -1,99 +1,168 @@
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbería</title>
+    <title>Barbería Anthony</title>
 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0D0D0D;
+            font-family: sans-serif;
+        }
+
+        /* MENU */
+        .barnav {
+            background-color: #0D0D0D;
+            width: 100%;
+            height: 60px;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .barnav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .barnav li {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .barnav li a {
+            color: #EFE5D2;
+            text-decoration: none;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        .barnav li a:hover {
+            color: #C28D39;
+            border-bottom: 2px solid #C28D39;
+        }
+
+        /* BANNER */
+        .banner {
+            width: 100%;
+            min-height: calc(100vh - 60px);
+
+            background-image:
+                linear-gradient(
+                    rgba(13,13,13,.30),
+                    rgba(13,13,13,.45)
+                ),
+                url('img67.jpeg');
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* LOGO */
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 25px;
+        }
+
+        /* ESLOGAN */
+        .eslogan {
+            color: #EFE5D2;
+            font-size: clamp(28px, 4vw, 50px);
+            font-family: Georgia, serif;
+            font-weight: bold;
+            font-style: italic;
+            text-align: center;
+            max-width: 900px;
+            line-height: 1.2;
+            text-shadow: 3px 3px 10px #000000;
+        }
+
+        .eslogan span {
+            color: #C28D39;
+        }
+
+        /* CELULARES */
+        @media (max-width: 768px) {
+
+            .barnav {
+                height: auto;
+                padding: 15px 10px;
+            }
+
+            .barnav ul {
+                gap: 15px;
+            }
+
+            .barnav li {
+                font-size: 12px;
+            }
+
+            .banner {
+                min-height: calc(100vh - 100px);
+                padding: 15px;
+            }
+
+            .logo {
+                width: 130px;
+                margin-bottom: 20px;
+            }
+
+            .eslogan {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    .logo {
-        width: 140px;
-        height: auto;
-        margin: -40px 90px;
-    }
-
-    .eslogan {
-        text-align: center;
-        color: #ffffff;
-        font-size: 30px;
-        font-family: 'Montserrat';
-        margin: 150px auto;
-        font-weight: 800;
-    }
-
-    body {
-        background-color: #0d0d0d;
-        background-size: 100% auto;
-        background-position: top center;
-        background-repeat: no-repeat;
-    }
-
-    .barnav {
-        background-color: rgba(0, 0, 0, 1);
-        width: 100%;
-        padding: 20px 40px;
-        color: #ffffff;
-        justify-items: center;
-        font-family: sans-serif;
-    }
-    .barnav ul {
-        display: flex;
-        list-style: none;
-        gap: 25px;
-    }
-    .barnav li {
-        color: #ffffff;
-        font-size: 16px;
-        font-weight: bold;
-        padding-bottom: 6px;
-    }
-    .barnav li a {
-        color: #ffffff;
-        text-decoration: none;
-        padding-bottom: 4px;
-        border-bottom: 2px solid transparent;
-        transition: 0.5s;
-    }
-    .barnav li a:hover {
-        color: #9c9a9a;
-        border-bottom: 2px solid #c28d39;
-        transition: 0.3s;
-    }
-
-    .banner {
-        width: 100%;
-        height: 400px;
-        background-image: url('img67.jpeg');
-        background-size: 100% auto;
-        background-position: top center;
-        background-repeat: no-repeat;
-        margin-top: 0px;
-    }
-</style>
-
 <body>
-<nav class="barnav">
-    <ul>
-    <li><a href="inicio.html">Inicio</a></li>
-    <li><a href="catalogo.html">Cortes</a></li>
-    <li><a href="Catproductos.html">Productos</a></li>
-    <li><a href="paquetes.html">Paquetes</a></li>
-    <li><a href="Reservacion.html">Agendar Cita</a></li>
-    <li><a href="ubicacion.html">Sucursales</a></li>
-    <li><a href="politicas.html">Politicas</a></li>
-    </ul>
-</nav>
 
-<div class="banner">
-    <img class="logo" src="logo.png" alt="Logo de la barbería">
-    <h2 class="eslogan"> ESTILO QUE SE NOTA, CALIDAD QUE SE SIENTE. </h2>
-</div>
+    <!-- MENU -->
+    <nav class="barnav">
+        <ul>
+            <li><a href="inicio.html">Inicio</a></li>
+            <li><a href="catalogo.html">Cortes</a></li>
+            <li><a href="Catproductos.html">Productos</a></li>
+            <li><a href="paquetes.html">Paquetes</a></li>
+            <li><a href="Reservacion.html">Agendar Cita</a></li>
+            <li><a href="ubicacion.html">Sucursales</a></li>
+            <li><a href="politicas.html">Politicas</a></li>
+        </ul>
+    </nav>
 
+    <!-- BANNER PRINCIPAL -->
+    <div class="banner">
+
+        <img class="logo" src="logo.png" alt="Logo de Barbería Anthony">
+
+        <h2 class="eslogan">
+            ESTILO QUE SE NOTA,<br>
+            <span>CALIDAD QUE SE SIENTE.</span>
+        </h2>
+
+    </div>
+
+</body>
 </html>
