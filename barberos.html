@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Barberos | Barbería Anthony</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0D0D0D;
+    font-family: Arial, sans-serif;
+    color: #EFE5D2;
+}
+
+/* MENÚ */
+
+.barnav {
+    background: #000;
+    padding: 20px;
+    border-bottom: 2px solid #710912;
+}
+
+.barnav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    list-style: none;
+}
+
+.barnav a {
+    color: #EFE5D2;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.barnav a:hover {
+    color: #C28D39;
+}
+
+/* ENCABEZADO */
+
+.encabezado {
+    text-align: center;
+    padding: 65px 20px;
+    background:
+        linear-gradient(rgba(13,13,13,.85),
+        rgba(113,9,18,.65)),
+        radial-gradient(circle, #362822, #0D0D0D);
+    border-bottom: 3px solid #C28D39;
+}
+
+.encabezado h1 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    letter-spacing: 4px;
+}
+
+.encabezado h1 span {
+    color: #C28D39;
+}
+
+.encabezado p {
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+/* SECCIÓN BARBEROS */
+
+.barberos-seccion {
+    max-width: 1200px;
+    margin: 55px auto;
+    padding: 20px;
+}
+
+.titulo-seccion {
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+
+.titulo-seccion span {
+    color: #C28D39;
+}
+
+.descripcion {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+/* TARJETAS */
+
+.grid-barberos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tarjeta-barbero {
+    background: #141414;
+    border: 1px solid #710912;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.tarjeta-barbero:hover {
+    transform: translateY(-5px);
+    border-color: #C28D39;
+    box-shadow: 0 8px 20px rgba(113,9,18,.25);
+}
+
+.info-principal {
+    padding: 18px;
+    text-align: center;
+}
+
+/* FOTOGRAFÍAS */
+
+.foto-barbero {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    border-bottom: 3px solid #C28D39;
+    margin-bottom: 18px;
+    background: #222;
+}
+
+.nombre-barbero {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.sucursal-barbero {
+    color: #C28D39;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.horario-barbero {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.especialidad-resumen {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+/* BOTÓN */
+
+.btn-ver-mas {
+    background: #710912;
+    color: #EFE5D2;
+    border: 1px solid #C28D39;
+    padding: 11px 28px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-ver-mas:hover {
+    background: #C28D39;
+    color: #0D0D0D;
+}
+
+/* RESEÑAS */
+
+.vinculo-resenias {
+    text-align: center;
+    padding: 16px;
+    background: #101010;
+    border-top: 1px solid #333;
+}
+
+.vinculo-resenias a {
+    color: #EFE5D2;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.vinculo-resenias a:hover {
+    color: #C28D39;
+}
+
+/* VENTANA EMERGENTE */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.88);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-contenido {
+    position: relative;
+    background: #151515;
+    border: 2px solid #C28D39;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 850px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+    animation: aparecer .3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BOTÓN CERRAR */
+
+.cerrar {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    color: #C28D39;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cerrar:hover {
+    color: #710912;
+}
+
+/* INFORMACIÓN DEL MODAL */
+
+.modal-encabezado {
+    text-align: center;
+    border-bottom: 2px solid #710912;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.modal-encabezado h2 {
+    color: #C28D39;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.modal-encabezado p {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.modal-info h3 {
+    color: #C28D39;
+    font-size: 17px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #710912;
+    padding-bottom: 8px;
+}
+
+.modal-info p {
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.modal-info ul {
+    color: #ccc;
+    padding-left: 20px;
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 25px;
+}
+
+/* MAPA */
+
+.mapa-contenedor {
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+    border: 1px solid #C28D39;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.mapa-contenedor iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.link-mapa {
+    color: #C28D39;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.link-mapa:hover {
+    text-decoration: underline;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #000;
+    border-top: 3px solid #710912;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+footer span {
+    color: #C28D39;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    .grid-barberos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 600px) {
+
+    .grid-barberos {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado h1 {
+        font-size: 30px;
+    }
+
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-contenido {
+        padding: 25px 18px;
+    }
+
+    .barberos-seccion {
+        padding: 12px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENÚ -->
+
+<nav class="barnav">
+<ul>
+    <li><a href="inicio.html">Inicio</a></li>
+    <li><a href="catalogo.html">Cortes</a></li>
+    <li><a href="Catproductos.html">Productos</a></li>
+    <li><a href="paquetes.html">Paquetes</a></li>
+    <li><a href="Reservacion.html">Agendar Cita</a></li>
+    <li><a href="barberos.html">Barberos</a></li>
+    <li><a href="ubicacion.html">Sucursales</a></li>
+    <li><a href="politicas.html">Políticas</a></li>
+</ul>
+</nav>
+
+<!-- ENCABEZADO -->
+
+<header class="encabezado">
+    <h1>NUESTROS <span>BARBEROS</span></h1>
+    <p>EXPERIENCIA • ESTILO • PRECISIÓN</p>
+</header>
+
+<!-- SECCIÓN DE BARBEROS -->
+
+<section class="barberos-seccion">
+
+<h2 class="titulo-seccion">
+    CONOCE A NUESTROS <span>PROFESIONALES</span>
+</h2>
+
+<p class="descripcion">
+    Conoce a los especialistas que hacen posible tu estilo.
+</p>
+
+<div class="grid-barberos">
+
+<!-- TARJETA 1 -->
+
+<div class="tarjeta-barbero">
+    <div class="info-principal">
+
+        <img src="imagenes/barbero.jpg" alt="Barbero 1" class="foto-barbero">
+
+        <h3 class="nombre-barbero">Anthony Jr.</h3>
+        <p class="sucursal-barbero">SUCURSAL CENTRO</p>
+        <p class="horario-barbero">Lun - Sáb | 10:00 AM - 8:00 PM</p>
+        <p class="especialidad-resumen">Especialista en cortes clásicos y modernos.</p>
+
+        <button class="btn-ver-mas" onclick="abrirModal(0)">Ver más +</button>
+
+    </div>
+    <div class="vinculo-resenias">
+        <a href="#seccion-resenias-barbero-1">Ver reseñas de este barbero →</a>
+    </div>
+</div>
+
+<!-- TARJETA 2 -->
+
+<div class="tarjeta-barbero">
+    <div class="info-principal">
+
+        <img src="imagenes/barbero2.jpg" alt="Barbero 2" class="foto-barbero">
+
+        <h3 class="nombre-barbero">Nombre del Barbero 2</h3>
+        <p class="sucursal-barbero">SUCURSAL NORTE</p>
+        <p class="horario-barbero">Lun - Sáb | 10:00 AM - 7:00 PM</p>
+        <p class="especialidad-resumen">Especialista en degradados y diseños.</p>
+
+        <button class="btn-ver-mas" onclick="abrirModal(1)">Ver más +</button>
+
+    </div>
+    <div class="vinculo-resenias">
+        <a href="#seccion-resenias-barbero-2">Ver reseñas de este barbero →</a>
+    </div>
+</div>
+
+<!-- TARJETA 3 -->
+
+<div class="tarjeta-barbero">
+    <div class="info-principal">
+
+        <img src="imagenes/barbero3.jpg" alt="Barbero 3" class="foto-barbero">
+
+        <h3 class="nombre-barbero">Nombre del Barbero 3</h3>
+        <p class="sucursal-barbero">SUCURSAL SUR</p>
+        <p class="horario-barbero">Mar - Dom | 11:00 AM - 8:00 PM</p>
+        <p class="especialidad-resumen">Especialista en cortes y cuidado personal.</p>
+
+        <button class="btn-ver-mas" onclick="abrirModal(2)">Ver más +</button>
+
+    </div>
+    <div class="vinculo-resenias">
+        <a href="#seccion-resenias-barbero-3">Ver reseñas de este barbero →</a>
+    </div>
+</div>
+
+<!-- TARJETA 4 -->
+
+<div class="tarjeta-barbero">
+    <div class="info-principal">
+
+        <img src="imagenes/barbero4.jpg" alt="Barbero 4" class="foto-barbero">
+
+        <h3 class="nombre-barbero">Nombre del Barbero 4</h3>
+        <p class="sucursal-barbero">SUCURSAL ORIENTE</p>
+        <p class="horario-barbero">Lun - Vie | 9:00 AM - 7:00 PM</p>
+        <p class="especialidad-resumen">Especialista en barbería contemporánea.</p>
+
+        <button class="btn-ver-mas" onclick="abrirModal(3)">Ver más +</button>
+
+    </div>
+    <div class="vinculo-resenias">
+        <a href="#seccion-resenias-barbero-4">Ver reseñas de este barbero →</a>
+    </div>
+</div>
+
+<!-- TARJETA 5 -->
+
+<div class="tarjeta-barbero">
+    <div class="info-principal">
+
+        <img src="imagenes/barbero5.jpg" alt="Barbero 5" class="foto-barbero">
+
+        <h3 class="nombre-barbero">Nombre del Barbero 5</h3>
+        <p class="sucursal-barbero">SUCURSAL CENTRO</p>
+        <p class="horario-barbero">Lun - Sáb | 11:00 AM - 8:00 PM</p>
+        <p class="especialidad-resumen">Especialista en estilos personalizados.</p>
+
+        <button class="btn-ver-mas" onclick="abrirModal(4)">Ver más +</button>
+
+    </div>
+    <div class="vinculo-resenias">
+        <a href="#seccion-resenias-barbero-5">Ver reseñas de este barbero →</a>
+    </div>
+</div>
+
+<!-- TARJETA 6 -->
+
+<div class="tarjeta-barbero">
+    <div class="info-principal">
+
+        <img src="imagenes/barbero6.jpg" alt="Barbero 6" class="foto-barbero">
+
+        <h3 class="nombre-barbero">Nombre del Barbero 6</h3>
+        <p class="sucursal-barbero">SUCURSAL NORTE</p>
+        <p class="horario-barbero">Mar - Dom | 10:00 AM - 8:00 PM</p>
+        <p class="especialidad-resumen">Especialista en cortes modernos y barba.</p>
+
+        <button class="btn-ver-mas" onclick="abrirModal(5)">Ver más +</button>
+
+    </div>
+    <div class="vinculo-resenias">
+        <a href="#seccion-resenias-barbero-6">Ver reseñas de este barbero →</a>
+    </div>
+</div>
+
+</div>
+</section>
+
+<!-- VENTANA EMERGENTE -->
+
+<div class="modal" id="modalBarbero" onclick="cerrarFondo(event)">
+
+    <div class="modal-contenido">
+
+        <button class="cerrar" onclick="cerrarModal()">&times;</button>
+
+        <div class="modal-encabezado">
+            <h2 id="modalNombre">Nombre del Barbero</h2>
+            <p id="modalSucursal">Sucursal</p>
+        </div>
+
+        <div class="modal-grid">
+
+            <div class="modal-info">
+
+                <h3>Estudios y certificaciones</h3>
+                <p id="modalEstudios"></p>
+
+                <h3>Especialidades</h3>
+                <ul id="modalEspecialidades"></ul>
+
+            </div>
+
+            <div class="modal-info">
+
+                <h3>Horario de trabajo</h3>
+                <p id="modalHorario"></p>
+
+                <h3>Ubicación de su sucursal</h3>
+
+                <div class="mapa-contenedor">
+                    <iframe id="modalMapa"
+                    src=""
+                    loading="lazy"
+                    allowfullscreen>
+                    </iframe>
+                </div>
+
+                <a id="modalLinkMapa"
+                class="link-mapa"
+                href=""
+                target="_blank">
+                    Ver ubicación en Google Maps →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PIE DE PÁGINA -->
+
+<footer>
+    <p>© 2026 <span>Barbería Anthony</span></p>
+    <p>Estilo • Precisión • Elegancia</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+/* INFORMACIÓN DE LOS 6 BARBEROS */
+
+const barberos = [
+
+{
+    nombre: "Anthony Jr.",
+    sucursal: "SUCURSAL CENTRO",
+    horario: "Lun - Sáb | 10:00 AM - 8:00 PM",
+    estudios: "Master Barber Academy. Especialización en barbería profesional y técnicas de corte.",
+    especialidades: ["Cortes clásicos", "Degradados", "Diseño de barba"],
+    mapa: "https://www.google.com/maps?q=Aguascalientes%20Centro&output=embed",
+    enlace: "https://www.google.com/maps/search/?api=1&query=Aguascalientes+Centro"
+},
+
+{
+    nombre: "Nombre del Barbero 2",
+    sucursal: "SUCURSAL NORTE",
+    horario: "Lun - Sáb | 10:00 AM - 7:00 PM",
+    estudios: "Agregar estudios y certificaciones del barbero.",
+    especialidades: ["Degradados", "Diseños personalizados", "Cortes modernos"],
+    mapa: "https://www.google.com/maps?q=Aguascalientes%20Norte&output=embed",
+    enlace: "https://www.google.com/maps/search/?api=1&query=Aguascalientes+Norte"
+},
+
+{
+    nombre: "Nombre del Barbero 3",
+    sucursal: "SUCURSAL SUR",
+    horario: "Mar - Dom | 11:00 AM - 8:00 PM",
+    estudios: "Agregar estudios y certificaciones del barbero.",
+    especialidades: ["Cortes profesionales", "Cuidado de barba", "Cortes personalizados"],
+    mapa: "https://www.google.com/maps?q=Aguascalientes%20Sur&output=embed",
+    enlace: "https://www.google.com/maps/search/?api=1&query=Aguascalientes+Sur"
+},
+
+{
+    nombre: "Nombre del Barbero 4",
+    sucursal: "SUCURSAL ORIENTE",
+    horario: "Lun - Vie | 9:00 AM - 7:00 PM",
+    estudios: "Agregar estudios y certificaciones del barbero.",
+    especialidades: ["Barbería contemporánea", "Cortes clásicos", "Arreglo de barba"],
+    mapa: "https://www.google.com/maps?q=Aguascalientes%20Oriente&output=embed",
+    enlace: "https://www.google.com/maps/search/?api=1&query=Aguascalientes+Oriente"
+},
+
+{
+    nombre: "Nombre del Barbero 5",
+    sucursal: "SUCURSAL CENTRO",
+    horario: "Lun - Sáb | 11:00 AM - 8:00 PM",
+    estudios: "Agregar estudios y certificaciones del barbero.",
+    especialidades: ["Cortes personalizados", "Degradados", "Diseño de barba"],
+    mapa: "https://www.google.com/maps?q=Aguascalientes%20Centro&output=embed",
+    enlace: "https://www.google.com/maps/search/?api=1&query=Aguascalientes+Centro"
+},
+
+{
+    nombre: "Nombre del Barbero 6",
+    sucursal: "SUCURSAL NORTE",
+    horario: "Mar - Dom | 10:00 AM - 8:00 PM",
+    estudios: "Agregar estudios y certificaciones del barbero.",
+    especialidades: ["Cortes modernos", "Diseño de barba", "Degradados"],
+    mapa: "https://www.google.com/maps?q=Aguascalientes%20Norte&output=embed",
+    enlace: "https://www.google.com/maps/search/?api=1&query=Aguascalientes+Norte"
+}
+
+];
+
+
+/* ABRIR MODAL */
+
+function abrirModal(indice) {
+
+    const barbero = barberos[indice];
+
+    document.getElementById("modalNombre").textContent = barbero.nombre;
+
+    document.getElementById("modalSucursal").textContent = barbero.sucursal;
+
+    document.getElementById("modalEstudios").textContent = barbero.estudios;
+
+    document.getElementById("modalHorario").textContent = barbero.horario;
+
+    const lista = document.getElementById("modalEspecialidades");
+
+    lista.innerHTML = "";
+
+    barbero.especialidades.forEach(function(especialidad) {
+
+        const li = document.createElement("li");
+
+        li.textContent = especialidad;
+
+        lista.appendChild(li);
+
+    });
+
+    document.getElementById("modalMapa").src = barbero.mapa;
+
+    document.getElementById("modalLinkMapa").href = barbero.enlace;
+
+    document.getElementById("modalBarbero").style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* CERRAR MODAL */
+
+function cerrarModal() {
+
+    document.getElementById("modalBarbero").style.display = "none";
+
+    document.body.style.overflow = "auto";
+
+}
+
+
+/* CERRAR AL PRESIONAR FUERA DE LA VENTANA */
+
+function cerrarFondo(event) {
+
+    if (event.target.id === "modalBarbero") {
+        cerrarModal();
+    }
+
+}
+
+
+/* CERRAR CON LA TECLA ESC */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        cerrarModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

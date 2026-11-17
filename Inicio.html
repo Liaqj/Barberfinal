@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -58,7 +57,8 @@
         /* BANNER */
         .banner {
             width: 100%;
-            min-height: calc(100vh - 60px);
+            height: calc(100vh - 60px);
+            min-height: 520px;
 
             background-image:
                 linear-gradient(
@@ -77,26 +77,28 @@
             justify-content: center;
 
             text-align: center;
-            padding: 20px;
+            padding: 10px;
+            gap: 8px;
+            overflow: hidden;
         }
 
         /* LOGO */
         .logo {
-            width: 180px;
+            width: 130px;
             height: auto;
-            margin-bottom: 25px;
+            margin-bottom: 1px;
         }
 
-        /* ESLOGAN */
+        /* ESLOGAN  */
         .eslogan {
             color: #EFE5D2;
-            font-size: clamp(28px, 4vw, 50px);
+            font-size: clamp(22px, 3.2vw, 36px);
             font-family: Georgia, serif;
             font-weight: bold;
             font-style: italic;
             text-align: center;
             max-width: 900px;
-            line-height: 1.2;
+            line-height: 1.15;
             text-shadow: 3px 3px 10px #000000;
         }
 
@@ -104,36 +106,108 @@
             color: #C28D39;
         }
 
+        /* GALERIA */
+        .dwc-galeria {
+            width: 100%;
+            padding: 2px 0;
+            overflow: hidden;
+        }
+
+        .dwc-titulo-galeria {
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .dwc-titulo-galeria h2 {
+            font-size: 20px;
+            color: #EFE5D2;
+        }
+
+        .dwc-titulo-galeria span {
+            color: #C28D39;
+        }
+
+        /* CARRUSEL */
+        .dwc-marco {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .dwc-pista {
+            display: flex;
+            gap: 15px;
+            width: max-content;
+            animation: mover 30s linear infinite;
+        }
+
+        .dwc-pista img {
+            width: 210px;
+            height: 270px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #C28D39;
+            border-radius: 5px;
+        }
+
+        @keyframes mover {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* TEXTO INFERIOR */
+        .dwc-nota-ficcion {
+            color: #EFE5D2;
+            text-align: center;
+            margin-top: 6px;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
         /* CELULARES */
         @media (max-width: 768px) {
 
             .barnav {
                 height: auto;
-                padding: 15px 10px;
+                padding: 10px;
             }
 
             .barnav ul {
-                gap: 15px;
+                gap: 12px;
             }
 
             .barnav li {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .banner {
-                min-height: calc(100vh - 100px);
-                padding: 15px;
+                height: auto;
+                min-height: calc(100vh - 80px);
+                padding: 10px;
             }
 
             .logo {
-                width: 130px;
-                margin-bottom: 20px;
+                width: 85px;
             }
 
             .eslogan {
-                font-size: 30px;
+                font-size: 22px;
+            }
+
+            .dwc-titulo-galeria h2 {
+                font-size: 17px;
+            }
+
+            .dwc-pista img {
+                width: 140px;
+                height: 180px;
             }
         }
+
     </style>
 </head>
 
@@ -149,6 +223,7 @@
             <li><a href="Reservacion.html">Agendar Cita</a></li>
             <li><a href="ubicacion.html">Sucursales</a></li>
             <li><a href="politicas.html">Politicas</a></li>
+            <li><a href="barberos.html">Barberos</a></li>
         </ul>
     </nav>
 
@@ -161,6 +236,44 @@
             ESTILO QUE SE NOTA,<br>
             <span>CALIDAD QUE SE SIENTE.</span>
         </h2>
+
+        <!-- CARRUSEL DE EXPEDIENTES -->
+        <section class="dwc-galeria" id="expedientes">
+
+            <div class="dwc-titulo-galeria">
+                <h2>CORTES <span>REALIZADOS</span></h2>
+            </div>
+
+            <div class="dwc-marco">
+                <div class="dwc-pista">
+
+                    <img src="imagenes/v1.jpeg" alt="Retrato ficticio 1">
+                    <img src="imagenes/v2.jpeg" alt="Retrato ficticio 2">
+                    <img src="imagenes/v3.jpeg" alt="Retrato ficticio 3">
+                    <img src="imagenes/v4.jpeg" alt="Retrato ficticio 4">
+                    <img src="imagenes/v5.jpeg" alt="Retrato ficticio 5">
+                    <img src="imagenes/v6.jpeg" alt="Retrato ficticio 6">
+                    <img src="imagenes/v7.jpeg" alt="Retrato ficticio 7">
+                    <img src="imagenes/v8.jpeg" alt="Retrato ficticio 8">
+
+                    <!-- IMAGENES REPETIDAS PARA MOVIMIENTO CONTINUO -->
+                    <img src="imagenes/v1.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v2.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v3.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v4.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v5.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v6.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v7.jpeg" alt="" aria-hidden="true">
+                    <img src="imagenes/v8.jpeg" alt="" aria-hidden="true">
+
+                </div>
+            </div>
+
+            <p class="dwc-nota-ficcion">
+                AGENDA YA
+            </p>
+
+        </section>
 
     </div>
 
