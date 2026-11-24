@@ -1,7 +1,11 @@
-<!DOCTYPE html><html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Agendar cita | Anthony Barber</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar cita | Anthony Barber</title>
+
+<style>
 
 * {
     margin: 0;
@@ -297,7 +301,6 @@ footer {
 }
 
 @media(max-width: 800px) {
-
     .grid {
         grid-template-columns: 1fr;
     }
@@ -305,11 +308,9 @@ footer {
     .columna-resumen {
         position: static;
     }
-
 }
 
 @media(max-width: 600px) {
-
     .hero h1 {
         font-size: 30px;
     }
@@ -321,10 +322,14 @@ footer {
     .dato {
         font-size: 14px;
     }
-
 }
 
-</style></head><body><nav class="barnav">
+</style>
+</head>
+
+<body>
+
+<nav class="barnav">
 <ul>
     <li><a href="inicio.html">Inicio</a></li>
     <li><a href="catalogo.html">Cortes</a></li>
@@ -332,303 +337,280 @@ footer {
     <li><a href="paquetes.html">Paquetes</a></li>
     <li><a href="Reservacion.html">Agendar cita</a></li>
     <li><a href="ubicacion.html">Sucursales</a></li>
+    <li><a href="barberos.html">Barberos</a></li>
     <li><a href="politicas.html">Políticas</a></li>
 </ul>
-</nav><header>
+</nav>
+
+<header>
     <div class="logo">BARBERÍA ANTHONY</div>
-</header><section class="hero"><h1>Agenda tu cita</h1>
+</header>
 
-<div class="linea"></div>
+<section class="hero">
+    <h1>Agenda tu cita</h1>
+    <div class="linea"></div>
+    <p>Tu estilo, tu momento. Te esperamos.</p>
+</section>
 
-<p>Tu estilo, tu momento. Te esperamos.</p>
+<div class="contenedor">
+<div class="grid">
 
-</section><div class="contenedor"><div class="grid"><div><div class="card"><h2>1. Elige tu fecha</h2>
+<div>
 
-<label>Fecha de la cita</label>
-
-<input type="date" id="fecha">
-
-</div><div class="card"><h2>2. Selecciona tu horario</h2>
-
-<label>Horario disponible</label>
-
-<select id="hora">
-
-    <option value="">Selecciona un horario</option>
-
-    <option>10:00 AM</option>
-    <option>11:00 AM</option>
-    <option>12:00 PM</option>
-    <option>1:00 PM</option>
-    <option>2:00 PM</option>
-    <option>3:00 PM</option>
-    <option>4:00 PM</option>
-    <option>5:00 PM</option>
-    <option>6:00 PM</option>
-    <option>7:00 PM</option>
-
-</select>
-
-</div><div class="card"><h2>3. Selecciona tu sucursal</h2>
-
-<label>Sucursal</label>
-
-<select id="sucursal">
-
-    <option value="">Selecciona una sucursal</option>
-
-    <option value="Centro">Centro</option>
-    <option value="Norte">Norte</option>
-    <option value="Plaza">Plaza</option>
-    <option value="Sur">Sur</option>
-
-</select>
-
-</div><div class="card"><h2>4. Elige tu barbero</h2>
-
-<label>Barbero disponible</label>
-
-<select id="barbero" disabled>
-
-    <option value="">Primero selecciona una sucursal</option>
-
-</select>
-
-</div><div class="card"><h2>5. Selecciona tu servicio</h2>
-
-<div class="botones-tipo">
-
-    <button type="button" class="btn-tipo" id="btnServicios">
-        Servicios
-    </button>
-
-    <button type="button" class="btn-tipo" id="btnPaquetes">
-        Paquetes
-    </button>
-
+<div class="card">
+    <h2>1. Elige tu fecha</h2>
+    <label>Fecha de la cita</label>
+    <input type="date" id="fecha">
 </div>
 
-<div id="opcionesServicios" class="oculto">
+<div class="card">
+    <h2>2. Selecciona tu horario</h2>
+    <label>Horario disponible</label>
 
-    <div class="subservicio">
+    <select id="hora">
+        <option value="">Selecciona un horario</option>
+        <option>10:00 AM</option>
+        <option>11:00 AM</option>
+        <option>12:00 PM</option>
+        <option>1:00 PM</option>
+        <option>2:00 PM</option>
+        <option>3:00 PM</option>
+        <option>4:00 PM</option>
+        <option>5:00 PM</option>
+        <option>6:00 PM</option>
+        <option>7:00 PM</option>
+    </select>
+</div>
 
-        <h3>Corte de pelo</h3>
+<div class="card">
+    <h2>3. Selecciona tu sucursal</h2>
+    <label>Sucursal</label>
 
-        <label>Selecciona tu tipo de corte</label>
+    <select id="sucursal">
+        <option value="">Selecciona una sucursal</option>
+        <option value="Centro">Centro</option>
+        <option value="Norte">Norte</option>
+        <option value="Plaza">Plaza</option>
+        <option value="Sur">Sur</option>
+    </select>
+</div>
 
-        <select id="corte">
+<div class="card">
+    <h2>4. Elige tu barbero</h2>
+    <label>Barbero disponible</label>
 
-            <option value="">Selecciona un corte</option>
+    <select id="barbero" disabled>
+        <option value="">Primero selecciona una sucursal</option>
+    </select>
+</div>
 
-            <option value="Buzz cut">Buzz cut</option>
-            <option value="Crew cut">Crew cut</option>
-            <option value="Side cut">Side cut</option>
-            <option value="Pompadour">Pompadour</option>
-            <option value="Slick back">Slick back</option>
-            <option value="Taper fade">Taper fade</option>
-            <option value="French crop">French crop</option>
-            <option value="Corte personalizado">Corte personalizado</option>
+<div class="card">
+    <h2>5. Selecciona tu servicio</h2>
 
-        </select>
+    <div class="botones-tipo">
+        <button type="button" class="btn-tipo" id="btnServicios">
+            Servicios
+        </button>
 
-        <div id="detallesCorte" class="oculto">
+        <button type="button" class="btn-tipo" id="btnPaquetes">
+            Paquetes
+        </button>
+    </div>
 
-            <label>Describe cómo deseas tu corte:</label>
+    <div id="opcionesServicios" class="oculto">
 
-            <textarea
-                id="descripcionCorte"
-                placeholder="Escribe los detalles de tu corte..."
-            ></textarea>
+        <div class="subservicio">
+            <h3>Corte de pelo</h3>
+            <label>Selecciona tu tipo de corte</label>
 
+            <select id="corte">
+                <option value="">Selecciona un corte</option>
+                <option value="Buzz cut">Buzz cut</option>
+                <option value="Crew cut">Crew cut</option>
+                <option value="Side cut">Side cut</option>
+                <option value="Pompadour">Pompadour</option>
+                <option value="Slick back">Slick back</option>
+                <option value="Taper fade">Taper fade</option>
+                <option value="French crop">French crop</option>
+                <option value="Corte personalizado">Corte personalizado</option>
+            </select>
+
+            <div id="detallesCorte" class="oculto">
+                <label>Describe cómo deseas tu corte:</label>
+                <textarea id="descripcionCorte"
+                    placeholder="Escribe los detalles de tu corte..."></textarea>
+            </div>
+
+            <p class="precio-extra">Precio del corte: $170</p>
         </div>
 
-        <p class="precio-extra">Precio del corte: $170</p>
+        <div class="subservicio">
+            <h3>Arreglo de barba</h3>
+            <label>¿Deseas agregar arreglo de barba?</label>
 
-    </div>
-
-    <div class="subservicio">
-
-        <h3>Arreglo de barba</h3>
-
-        <label>¿Deseas agregar arreglo de barba?</label>
-
-        <select id="barba">
-
-            <option value="0">No</option>
-            <option value="150">Sí - $150</option>
-
-        </select>
-
-    </div>
-
-    <div class="subservicio">
-
-        <h3>Lavado facial y de cabello</h3>
-
-        <label>¿Deseas agregar este servicio?</label>
-
-        <div class="opcion-lavado">
-
-            <label>
-                <input type="radio" name="lavado" value="40">
-                Sí
-            </label>
-
-            <label>
-                <input type="radio" name="lavado" value="0" checked>
-                No
-            </label>
-
+            <select id="barba">
+                <option value="0">No</option>
+                <option value="150">Sí - $150</option>
+            </select>
         </div>
 
-        <p class="precio-extra">Costo adicional: $40</p>
+        <div class="subservicio">
+            <h3>Lavado facial y de cabello</h3>
+            <label>¿Deseas agregar este servicio?</label>
 
+            <div class="opcion-lavado">
+                <label>
+                    <input type="radio" name="lavado" value="40">
+                    Sí
+                </label>
+
+                <label>
+                    <input type="radio" name="lavado" value="0" checked>
+                    No
+                </label>
+            </div>
+
+            <p class="precio-extra">Costo adicional: $40</p>
+        </div>
+
+    </div>
+
+    <div id="opcionesPaquetes" class="oculto">
+        <div class="subservicio">
+            <h3>Paquetes disponibles</h3>
+            <label>Selecciona tu paquete</label>
+
+            <select id="paquete">
+                <option value="">Selecciona un paquete</option>
+                <option value="Básico" data-precio="135">Básico - $135</option>
+                <option value="Premium" data-precio="187">Premium - $187</option>
+                <option value="Anthony" data-precio="224">Anthony - $224</option>
+                <option value="Barba" data-precio="117">Barba - $117</option>
+                <option value="Estudiante" data-precio="102">Estudiante - $102</option>
+                <option value="VIP" data-precio="262.50">VIP - $262.50</option>
+            </select>
+        </div>
     </div>
 
 </div>
 
-<div id="opcionesPaquetes" class="oculto">
+<div class="card">
+    <h2>6. Datos del cliente</h2>
 
-    <div class="subservicio">
+    <label>Nombre completo</label>
+    <input type="text" id="nombre"
+        placeholder="Escribe tu nombre completo">
 
-        <h3>Paquetes disponibles</h3>
-
-        <label>Selecciona tu paquete</label>
-
-        <select id="paquete">
-
-            <option value="">Selecciona un paquete</option>
-
-            <option value="Básico" data-precio="135">
-                Básico - $135
-            </option>
-
-            <option value="Premium" data-precio="187">
-                Premium - $187
-            </option>
-
-            <option value="Anthony" data-precio="224">
-                Anthony - $224
-            </option>
-
-            <option value="Barba" data-precio="117">
-                Barba - $117
-            </option>
-
-            <option value="Estudiante" data-precio="102">
-                Estudiante - $102
-            </option>
-
-            <option value="VIP" data-precio="262.50">
-                VIP - $262.50
-            </option>
-
-        </select>
-
-    </div>
+    <label>Teléfono</label>
+    <input type="tel" id="telefono"
+        placeholder="449 123 4567">
+</div>
 
 </div>
 
-</div><div class="card"><h2>6. Datos del cliente</h2>
+<div class="columna-resumen">
 
-<label>Nombre completo</label>
+<div class="card">
+    <h2>Resumen de tu reservación</h2>
 
-<input
-    type="text"
-    id="nombre"
-    placeholder="Escribe tu nombre completo"
->
+    <div class="resumen">
+        <h3>Detalles de tu cita</h3>
 
-<label>Teléfono</label>
+        <div class="dato">
+            <span>Cliente:</span>
+            <strong id="rNombre">-</strong>
+        </div>
 
-<input
-    type="tel"
-    id="telefono"
-    placeholder="449 123 4567"
->
+        <div class="dato">
+            <span>Fecha:</span>
+            <strong id="rFecha">-</strong>
+        </div>
 
-</div></div><div class="columna-resumen"><div class="card"><h2>Resumen de tu reservación</h2>
+        <div class="dato">
+            <span>Hora:</span>
+            <strong id="rHora">-</strong>
+        </div>
 
-<div class="resumen">
+        <div class="dato">
+            <span>Sucursal:</span>
+            <strong id="rSucursal">-</strong>
+        </div>
 
-    <h3>Detalles de tu cita</h3>
+        <div class="dato">
+            <span>Barbero:</span>
+            <strong id="rBarbero">-</strong>
+        </div>
 
-    <div class="dato">
-        <span>Cliente:</span>
-        <strong id="rNombre">-</strong>
+        <div class="dato">
+            <span>Servicio:</span>
+            <strong id="rServicio">-</strong>
+        </div>
+
+        <div class="dato">
+            <span>Lavado:</span>
+            <strong id="rLavado">No</strong>
+        </div>
+
+        <div class="total">
+            Total: $<span id="rTotal">0.00</span>
+        </div>
     </div>
 
-    <div class="dato">
-        <span>Fecha:</span>
-        <strong id="rFecha">-</strong>
-    </div>
-
-    <div class="dato">
-        <span>Hora:</span>
-        <strong id="rHora">-</strong>
-    </div>
-
-    <div class="dato">
-        <span>Sucursal:</span>
-        <strong id="rSucursal">-</strong>
-    </div>
-
-    <div class="dato">
-        <span>Barbero:</span>
-        <strong id="rBarbero">-</strong>
-    </div>
-
-    <div class="dato">
-        <span>Servicio:</span>
-        <strong id="rServicio">-</strong>
-    </div>
-
-    <div class="dato">
-        <span>Lavado:</span>
-        <strong id="rLavado">No</strong>
-    </div>
-
-    <div class="total">
-        Total: $<span id="rTotal">0.00</span>
-    </div>
-
+    <button class="btn" onclick="confirmarCita()">
+        Confirmar cita
+    </button>
 </div>
 
-<button class="btn" onclick="confirmarCita()">
-    Confirmar cita
-</button>
+<div id="confirmacion">
+    <h2>¡Cita confirmada!</h2>
 
-</div><div id="confirmacion"><h2>¡Cita confirmada!</h2>
+    <p>Tu reservación ha sido registrada correctamente.</p>
+    <br>
 
-<p>Tu reservación ha sido registrada correctamente.</p>
+    <p><strong>Cliente:</strong> <span id="cNombre"></span></p>
+    <p><strong>Fecha:</strong> <span id="cFecha"></span></p>
+    <p><strong>Horario:</strong> <span id="cHora"></span></p>
+    <p><strong>Sucursal:</strong> <span id="cSucursal"></span></p>
+    <p><strong>Barbero:</strong> <span id="cBarbero"></span></p>
+    <p><strong>Servicio:</strong> <span id="cServicio"></span></p>
+    <p><strong>Total:</strong> $<span id="cTotal"></span></p>
 
-<br>
-
-<p><strong>Cliente:</strong> <span id="cNombre"></span></p>
-
-<p><strong>Fecha:</strong> <span id="cFecha"></span></p>
-
-<p><strong>Horario:</strong> <span id="cHora"></span></p>
-
-<p><strong>Sucursal:</strong> <span id="cSucursal"></span></p>
-
-<p><strong>Barbero:</strong> <span id="cBarbero"></span></p>
-
-<p><strong>Servicio:</strong> <span id="cServicio"></span></p>
-
-<p><strong>Total:</strong> $<span id="cTotal"></span></p>
-
-<div class="mensaje-final">
-    ¡Te esperamos en Anthony Barber!
+    <div class="mensaje-final">
+        ¡Te esperamos en Anthony Barber!
+    </div>
 </div>
 
-</div></div></div></div><footer><p>© 2026 Barbería Anthony</p>
+</div>
+</div>
+</div>
 
-<br>
+<!-- SECCIÓN PARA CANCELAR RESERVACIONES -->
+<div class="contenedor">
+    <div class="card">
+        <h2>Cancelar reservación</h2>
 
-<p>Estilo • Precisión • Elegancia</p>
+        <label>Ingresa el folio de tu reservación</label>
 
-</footer><script>
+        <input
+            type="number"
+            id="folioCancelar"
+            placeholder="Ej. 1"
+            min="1"
+        >
+
+        <button class="btn" onclick="cancelarReservacion()">
+            Cancelar reservación
+        </button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Barbería Anthony</p>
+    <br>
+    <p>Estilo • Precisión • Elegancia</p>
+</footer>
+
+<script>
 
 const fecha = document.getElementById("fecha");
 const hora = document.getElementById("hora");
@@ -653,12 +635,10 @@ fecha.min =
     String(hoy.getDate()).padStart(2,"0");
 
 const barberos = {
-
-    "Centro": ["Anthony", "Lia"],
-    "Norte": ["Amaia", "Axel"],
-    "Plaza": ["Anthony", "Axel"],
-    "Sur": ["Lia", "Amaia"]
-
+    "Centro": ["Anthony"],
+    "Norte": ["Lia"],
+    "Plaza": ["Amaia"],
+    "Sur": ["Axel"]
 };
 
 let tipoSeleccionado = "";
@@ -676,7 +656,6 @@ btnServicios.addEventListener("click", function() {
     paquete.value = "";
 
     actualizarResumen();
-
 });
 
 btnPaquetes.addEventListener("click", function() {
@@ -691,20 +670,20 @@ btnPaquetes.addEventListener("click", function() {
 
     corte.value = "";
     barba.value = "0";
+
     document.getElementById("descripcionCorte").value = "";
     document.getElementById("detallesCorte").style.display = "none";
 
     document.querySelector('input[name="lavado"][value="0"]').checked = true;
 
     actualizarResumen();
-
 });
 
 sucursal.addEventListener("change", function() {
 
     barbero.innerHTML = "";
 
-    if(this.value === "") {
+    if (this.value === "") {
 
         barbero.disabled = true;
 
@@ -726,50 +705,40 @@ sucursal.addEventListener("change", function() {
             opcion.textContent = nombre;
 
             barbero.appendChild(opcion);
-
         });
-
     }
 
     actualizarResumen();
-
 });
 
 corte.addEventListener("change", function() {
 
     const detalles = document.getElementById("detallesCorte");
 
-    if(this.value === "Corte personalizado") {
-
+    if (this.value === "Corte personalizado") {
         detalles.style.display = "block";
-
     } else {
-
         detalles.style.display = "none";
-
         document.getElementById("descripcionCorte").value = "";
-
     }
 
     actualizarResumen();
-
 });
 
 function obtenerPrecio() {
 
-    if(tipoSeleccionado === "Paquetes") {
+    if (tipoSeleccionado === "Paquetes") {
 
         const opcion = paquete.options[paquete.selectedIndex];
 
         return Number(opcion.dataset.precio || 0);
-
     }
 
-    if(tipoSeleccionado === "Servicios") {
+    if (tipoSeleccionado === "Servicios") {
 
         let total = 0;
 
-        if(corte.value) {
+        if (corte.value) {
             total += 170;
         }
 
@@ -777,53 +746,45 @@ function obtenerPrecio() {
 
         const lavado = document.querySelector('input[name="lavado"]:checked');
 
-        if(lavado) {
+        if (lavado) {
             total += Number(lavado.value);
         }
 
         return total;
-
     }
 
     return 0;
-
 }
 
 function obtenerServicio() {
 
-    if(tipoSeleccionado === "Paquetes") {
-
-        return paquete.value ?
-            "Paquete " + paquete.value : "-";
-
+    if (tipoSeleccionado === "Paquetes") {
+        return paquete.value ? "Paquete " + paquete.value : "-";
     }
 
-    if(tipoSeleccionado === "Servicios") {
+    if (tipoSeleccionado === "Servicios") {
 
         let servicios = [];
 
-        if(corte.value) {
+        if (corte.value) {
             servicios.push(corte.value);
         }
 
-        if(Number(barba.value) > 0) {
+        if (Number(barba.value) > 0) {
             servicios.push("Arreglo de barba");
         }
 
-        return servicios.length > 0 ?
-            servicios.join(" + ") : "-";
-
+        return servicios.length > 0 ? servicios.join(" + ") : "-";
     }
 
     return "-";
-
 }
 
 function actualizarResumen() {
 
     let fechaTexto = "-";
 
-    if(fecha.value) {
+    if (fecha.value) {
 
         const partes = fecha.value.split("-");
 
@@ -836,7 +797,6 @@ function actualizarResumen() {
             month: "long",
             year: "numeric"
         });
-
     }
 
     const lavado = document.querySelector('input[name="lavado"]:checked');
@@ -844,27 +804,17 @@ function actualizarResumen() {
     document.getElementById("rNombre").innerText =
         document.getElementById("nombre").value || "-";
 
-    document.getElementById("rFecha").innerText =
-        fechaTexto;
-
-    document.getElementById("rHora").innerText =
-        hora.value || "-";
-
-    document.getElementById("rSucursal").innerText =
-        sucursal.value || "-";
-
-    document.getElementById("rBarbero").innerText =
-        barbero.value || "-";
-
-    document.getElementById("rServicio").innerText =
-        obtenerServicio();
+    document.getElementById("rFecha").innerText = fechaTexto;
+    document.getElementById("rHora").innerText = hora.value || "-";
+    document.getElementById("rSucursal").innerText = sucursal.value || "-";
+    document.getElementById("rBarbero").innerText = barbero.value || "-";
+    document.getElementById("rServicio").innerText = obtenerServicio();
 
     document.getElementById("rLavado").innerText =
         lavado && Number(lavado.value) > 0 ? "Sí (+$40)" : "No";
 
     document.getElementById("rTotal").innerText =
         obtenerPrecio().toFixed(2);
-
 }
 
 document.querySelectorAll("input, select, textarea")
@@ -872,102 +822,72 @@ document.querySelectorAll("input, select, textarea")
 
     elemento.addEventListener("input", actualizarResumen);
     elemento.addEventListener("change", actualizarResumen);
-
 });
 
-function confirmarCita() {
+async function confirmarCita() {
 
-    const nombre =
-        document.getElementById("nombre").value.trim();
-
-    const telefono =
-        document.getElementById("telefono").value.trim();
-
-    const descripcion =
-        document.getElementById("descripcionCorte").value.trim();
+    const nombre = document.getElementById("nombre").value.trim();
+    const telefono = document.getElementById("telefono").value.trim();
+    const descripcion = document.getElementById("descripcionCorte").value.trim();
 
     const precio = obtenerPrecio();
-
     const servicioTexto = obtenerServicio();
 
-    if(!fecha.value || fecha.value < fecha.min) {
+    if (!fecha.value || fecha.value < fecha.min) {
         alert("Selecciona una fecha válida.");
         return;
     }
 
-    if(!hora.value) {
+    if (!hora.value) {
         alert("Selecciona un horario.");
         return;
     }
 
-    if(!sucursal.value) {
+    if (!sucursal.value) {
         alert("Selecciona una sucursal.");
         return;
     }
 
-    if(!barbero.value) {
+    if (!barbero.value) {
         alert("Selecciona un barbero.");
         return;
     }
 
-    if(!tipoSeleccionado) {
+    if (!tipoSeleccionado) {
         alert("Selecciona Servicios o Paquetes.");
         return;
     }
 
-    if(tipoSeleccionado === "Servicios" && !corte.value && barba.value === "0") {
+    if (tipoSeleccionado === "Servicios" && !corte.value && barba.value === "0") {
         alert("Selecciona al menos un servicio.");
         return;
     }
 
-    if(tipoSeleccionado === "Servicios" && corte.value === "Corte personalizado" && !descripcion) {
+    if (tipoSeleccionado === "Servicios" &&
+        corte.value === "Corte personalizado" && !descripcion) {
         alert("Describe cómo deseas tu corte personalizado.");
         return;
     }
 
-    if(tipoSeleccionado === "Paquetes" && !paquete.value) {
+    if (tipoSeleccionado === "Paquetes" && !paquete.value) {
         alert("Selecciona un paquete.");
         return;
     }
 
-    if(!nombre) {
+    if (!nombre) {
         alert("Escribe tu nombre.");
         return;
     }
 
-const telefonoLimpio = telefono.replace(/\D/g, "");
-
-if(telefonoLimpio.length !== 10) {
-    alert("Escribe un teléfono válido de 10 dígitos.");
-    return;
-}
-
-    const partes = fecha.value.split("-");
-
-    const fechaTexto = new Date(
-        Number(partes[0]),
-        Number(partes[1])-1,
-        Number(partes[2])
-    ).toLocaleDateString("es-MX", {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    });
-
-    document.getElementById("cNombre").innerText = nombre;
-    document.getElementById("cFecha").innerText = fechaTexto;
-    document.getElementById("cHora").innerText = hora.value;
-    document.getElementById("cSucursal").innerText = sucursal.value;
-    document.getElementById("cBarbero").innerText = barbero.value;
-    document.getElementById("cServicio").innerText = servicioTexto;
-    document.getElementById("cTotal").innerText = precio.toFixed(2);
+    if (!/^[0-9]{10}$/.test(telefono)) {
+        alert("Escribe un teléfono válido de 10 dígitos.");
+        return;
+    }
 
     const cita = {
-
         nombre: nombre,
         telefono: telefono,
-        fecha: fechaTexto,
+        fecha: fecha.value,
         horario: hora.value,
         sucursal: sucursal.value,
         barbero: barbero.value,
@@ -975,18 +895,107 @@ if(telefonoLimpio.length !== 10) {
         descripcion: descripcion,
         lavado: document.querySelector('input[name="lavado"]:checked').value,
         total: precio
-
     };
 
-    localStorage.setItem("citaAnthony", JSON.stringify(cita));
+    try {
 
-    document.getElementById("confirmacion").style.display = "block";
+        const respuesta = await fetch("guardar_reservacion.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(cita)
+        });
 
-    document.getElementById("confirmacion").scrollIntoView({
-        behavior: "smooth"
-    });
+        const resultado = await respuesta.json();
 
+        if (!resultado.exito) {
+            alert(resultado.mensaje);
+            return;
+        }
+
+        const partes = fecha.value.split("-");
+
+        const fechaTexto = new Date(
+            Number(partes[0]),
+            Number(partes[1])-1,
+            Number(partes[2])
+        ).toLocaleDateString("es-MX", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
+
+        document.getElementById("cNombre").innerText = nombre;
+        document.getElementById("cFecha").innerText = fechaTexto;
+        document.getElementById("cHora").innerText = hora.value;
+        document.getElementById("cSucursal").innerText = sucursal.value;
+        document.getElementById("cBarbero").innerText = barbero.value;
+        document.getElementById("cServicio").innerText = servicioTexto;
+        document.getElementById("cTotal").innerText = precio.toFixed(2);
+
+        document.getElementById("confirmacion").style.display = "block";
+
+        document.getElementById("confirmacion").scrollIntoView({
+            behavior: "smooth"
+        });
+
+        alert("¡Tu reservación se guardó correctamente!");
+
+    } catch (error) {
+
+        alert("No se pudo conectar con el servidor. Verifica que Apache y MySQL estén encendidos.");
+
+        console.error(error);
+    }
 }
 
-</script></body>
+
+// FUNCIÓN PARA CANCELAR RESERVACIÓN
+
+async function cancelarReservacion() {
+
+    const idReserva = document.getElementById("folioCancelar").value;
+
+    if (!idReserva || Number(idReserva) <= 0) {
+        alert("Escribe un folio válido.");
+        return;
+    }
+
+    if (!confirm("¿Estás seguro de que deseas cancelar esta reservación?")) {
+        return;
+    }
+
+    try {
+
+        const respuesta = await fetch("cancelar_reservacion.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id_reserva: idReserva
+            })
+        });
+
+        const resultado = await respuesta.json();
+
+        alert(resultado.mensaje);
+
+        if (resultado.exito) {
+            document.getElementById("folioCancelar").value = "";
+        }
+
+    } catch (error) {
+
+        alert("No se pudo conectar con el servidor.");
+
+        console.error(error);
+    }
+}
+
+</script>
+
+</body>
 </html>
