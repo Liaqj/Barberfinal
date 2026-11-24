@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony Barber | Cursos</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .barnav {
+            background: #000;
+            width: 100%;
+            padding: 20px 40px;
+            color: white;
+            justify-items: center;
+            font-family: sans-serif;
+        }
+
+        .barnav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .barnav li {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding-bottom: 6px;
+        }
+
+        .barnav li a {
+            color: white;
+            text-decoration: none;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: .3s;
+        }
+
+        .barnav li a:hover {
+            color: #b61b1b;
+            border-bottom: 2px solid #D4141E;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0D0D0D;
+            color: white;
+        }
+
+        header {
+            background: #111;
+            border-bottom: 2px solid #B5121B;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #a00d0d;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            display: block;
+            color: white;
+            font-size: 11px;
+            text-align: center;
+            letter-spacing: 5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #D4141E;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px 50px;
+        }
+
+        .hero p {
+            color: #b17f2e;
+            font-size: 14px;
+            letter-spacing: 6px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #cc8e29;
+        }
+
+        .hero h3 {
+            color: #CCC;
+            font-weight: normal;
+        }
+
+
+        .sucursales {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding-bottom: 70px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+
+        .card {
+            background: #171717;
+            border: 1px solid #5A171B;
+            border-radius: 12px;
+            padding: 28px;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #D4141E;
+            box-shadow: 0 8px 20px rgba(212,20,30,.15);
+        }
+
+        .numero {
+            color: #8d6729;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .card h2 {
+            font-size: 28px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            color: white;
+        }
+
+        .info {
+            color: #CCC;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .info strong {
+            color: #f1ab39;
+        }
+        .infoprecio strong {
+            color: #f1ab39;
+        }
+
+        .infoprecio {
+            color: #c5e4c5;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .estado {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .boton {
+            display: block;
+            width: 100%;
+            padding: 13px;
+            background: #C28D39;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            transition: .3s;
+        }
+
+        .boton:hover {
+            background: rgb(199, 136, 34);
+            color: #111;
+            transform: translateY(-2px);
+        }
+
+   
+        footer {
+            background: #111;
+            border-top: 2px solid #B5121B;
+            text-align: center;
+            padding: 30px;
+        }
+
+        footer h2 {
+            color: #a00d0d;
+            margin-bottom: 10px;
+        }
+
+        footer h2 span {
+            color: white;
+        }
+
+        footer p {
+            color: #CCC;
+            font-size: 14px;
+        }
+
+     
+        @media (max-width: 750px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .sucursales {
+                grid-template-columns: 1fr;
+            }
+
+            .barnav {
+                padding: 20px 15px;
+            }
+
+            .barnav ul {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="barnav">
+    <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="catalogo.html">Cortes</a></li>
+        <li><a href="Catproductos.html">Productos</a></li>
+        <li><a href="paquetes.html">Paquetes</a></li>
+        <li><a href="Reservacion.html">Agendar Cita</a></li>
+        <li><a href="ubicacion.html">Sucursales</a></li>
+        <li><a href="politicas.html">Politicas</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+    </ul>
+</nav>
+
+<header>
+    <div class="logo">
+        ANTHONY
+        <span>BARBER</span>
+    </div>
+</header>
+
+<section class="hero">
+    <p>ANTHONY BARBER</p>
+
+    <h1>
+        NUESTROS <span>CURSOS</span>
+    </h1>
+
+    <h3>
+        Encuentra el curso que buscabas
+    </h3>
+</section>
+
+<section class="sucursales" id="sucursales">
+
+    <div class="card">
+        <div class="numero">Centro</div>
+
+        <h2>Cabello</h2>
+
+        <div class="info">
+            Se vera todo lo principal sobre cortes de cabello y tecncas para realizar los cortes de manera correcta.
+        </div>
+
+        <div class="info">
+            <strong>Ubicación</strong>
+            <br>
+            Av. Principal #125, Zona Centro
+        </div>
+
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Sábado: 9:00 AM - 12:00 PM
+            <br>
+            Domingo: 1:00 PM - 4:00 PM
+        </div>
+
+        <div class="infoprecio">
+            <strong>Precio</strong>
+            <br>
+            $300 MXN
+        </div>
+
+        <a
+            href="https://www.google.com/maps/place/Barber+Resort/@21.8695264,-102.3046663,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ed711fa7726d:0x1d93ef29bf4c179b!8m2!3d21.8695264!4d-102.3046663!16s%2Fg%2F11fnpb26b5?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="numero">Norte</div>
+
+        <h2>Barba</h2>
+
+        <div class="info">
+            Se vera como poder darle forma y estilo a las barbas asi como darles mantenimiento.
+        </div>
+
+        <div class="info">
+            <strong>Ubicación</strong>
+            <br>
+            Av. Independencia #245, Zona Norte
+        </div>
+
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Sábado: 10:00 AM - 1:00 PM
+            <br>
+            Domingo: 1:00 PM - 4:00 PM
+        </div>
+
+        <div class="infoprecio">
+            <strong>Precio</strong>
+            <br>
+            $200 MXN
+        </div>
+
+        <a
+            href="https://www.google.com/maps/place/MP+Barber+Club/@21.9078035,-102.2971769,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ef5fb764fe53:0x8a752f35b3466f71!8m2!3d21.9078035!4d-102.2971769!16s%2Fg%2F11khspbm1j?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
+
+    <div class="card">
+        <div class="numero">Sur</div>
+
+        <h2>Definicion</h2>
+
+        <div class="info">
+            Abarcaremos el como se pueden definir mejor los cortes de cabells y las barbas para darles una mejor forma.
+        </div>
+
+        <div class="info">
+            <strong>Ubicación</strong>
+            <br>
+            Blvd. Las Américas #350, Zona Sur
+        </div>
+
+        <div class="info">
+            <strong>Horario</strong>
+            <br>
+            Sábado: 3:00 PM - 6:00 PM
+            <br>
+            Domingo: 12:00 PM - 3:00 PM
+        </div>
+
+        <div class="infoprecio">
+            <strong>Precio</strong>
+            <br>
+            $200 MXN
+        </div>
+
+        <a
+            href="https://www.google.com/maps/place/El+Club+de+los+27+%7C+Barber%C3%ADa+Premium+%2B+Bar+de+Autor/@21.9300431,-102.3047219,17z/data=!3m1!4b1!4m6!3m5!1s0x8429ef006efd17e7:0x6c169d389dddbaf2!8m2!3d21.9300431!4d-102.3047219!16s%2Fg%2F11z7gzxb44?hl=es&entry=ttu"
+            target="_blank"
+            class="boton">
+            Ver ubicación
+        </a>
+    </div>
+
+</section>
+
+<footer>
+    <h2>
+        ANTHONY <span>BARBER</span>
+    </h2>
+
+    <p>
+        © 2026 Anthony Barber | Todos los derechos reservados
+    </p>
+</footer>
+
+</body>
+</html>
